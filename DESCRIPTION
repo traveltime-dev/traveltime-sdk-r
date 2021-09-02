@@ -1,16 +1,20 @@
 Package: traveltimeR
-Title: What the Package Does (One Line, Title Case)
+Title: R Interface to Travel Time
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Nikolay",
+           family = "S",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+           email = "email@email.email")
+Description: traveltimeR is a R wrapper for Travel Time API (https://traveltime.com/).
+  TravelTime API helps users find locations by journey time rather than using ‘as the crow flies’ distance.
+  Time-based searching gives users more opportunities for personalisation and delivers a more relevant search.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Imports: 
+    data.table,
+    httr,
+    jsonlite
