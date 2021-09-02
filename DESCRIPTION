@@ -18,3 +18,5 @@ Imports:
     data.table,
     httr,
     jsonlite
+URL: https://github.com/s-Nick-s/traveltimeR
+BugReports: https://github.com/s-Nick-s/traveltimeR/issues
