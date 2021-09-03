@@ -56,7 +56,7 @@ arrival_search <-
               range = list(enabled = T, width = 1800, max_results = 1))
 
 result <-
-  time_filter(
+  routes(
     departure_searches = departure_search,
     arrival_searches = arrival_search,
     locations = locations

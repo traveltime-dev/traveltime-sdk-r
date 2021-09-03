@@ -34,9 +34,10 @@ get_api_headers <- function() {
   httr::add_headers(`X-Application-Id` = id, `X-Api-Key` = key)
 }
 
-traveltime_api <- function(path, body = NULL) {
+#' @importFrom utils head
+traveltime_api <- function(path, body = NULL, query = NULL) {
 
-  url <- httr::modify_url("https://api.traveltimeapp.com", path = c('v4', path))
+  url <- httr::modify_url("https://api.traveltimeapp.com", path = c('v4', path), query = query)
 
   if (is.null(body)) {
     resp <- httr::GET(url = url, get_ua(), get_api_headers())
@@ -52,6 +53,7 @@ traveltime_api <- function(path, body = NULL) {
   parsed <- jsonlite::fromJSON(json, simplifyVector = FALSE)
 
   if (httr::status_code(resp) != 200) {
+    info <- parsed$additional_info
     stop(
       sprintf(
         "Travel Time API request failed [%s]\n%s\nError code: %s\n<%s>\n",
@@ -60,9 +62,9 @@ traveltime_api <- function(path, body = NULL) {
         parsed$error_code,
         parsed$documentation_link
       ),
-      names(parsed$additional_info)[1],
+      head(names(info),1),
       " - ",
-      parsed$additional_info[[1]][[1]],
+      head(unlist(info), 1),
       call. = FALSE
     )
   }
