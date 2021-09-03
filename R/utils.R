@@ -82,7 +82,7 @@ add_search_args <- function(...) {
 
   args <- list(...)
   if (is.null(names(args)) || any(names(args) == "")) {
-    stop("All objects must be named!")
+    stop("All objects must be named!", call. = F)
   }
 
   list_args <- vapply(args, is.list, FUN.VALUE = logical(1))
