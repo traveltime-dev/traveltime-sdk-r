@@ -42,7 +42,7 @@
 #'               range = list(enabled = T, width = 1800, max_results = 1))
 #'
 #' result <-
-#'   time_filter(
+#'   routes(
 #'     departure_searches = departure_search,
 #'     arrival_searches = arrival_search,
 #'     locations = locations
@@ -59,5 +59,5 @@ routes <- function(locations, departure_searches = NULL, arrival_searches = NULL
     arrival_searches = arrival_searches,
     locations = locations)
 
-  traveltime_api(path = 'time-filter', body = build_body(body))
+  traveltime_api(path = 'routes', body = build_body(body))
 }
