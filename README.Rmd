@@ -59,6 +59,19 @@ result <- time_map(departure_searches = departure_search)
 
 ```
 
-Check function documentation for more examples.
+Also available:
+
+* `time_filter()` [Distance Matrix (Time Filter)](https://traveltime.com/docs/api/reference/distance-matrix)
+* `routes()` [Routes](https://traveltime.com/docs/api/reference/routes)
+* `time_filter_fast()` [Time Filter (Fast)](https://traveltime.com/docs/api/reference/time-filter-fast)
+* `time_filter_postcode_districts(https://traveltime.com/docs/api/reference/postcode-district-filter)` [Time Filter (Postcode Districts)]()
+* `time_filter_postcode_sectors()` [Time Filter (Postcode Sectors)](https://traveltime.com/docs/api/reference/postcode-sector-filter)
+* `time_filter_postcodes()` [Time Filter (Postcodes)](https://traveltime.com/docs/api/reference/postcode-search)
+* `geocoding()` [Geocoding (Search)](https://traveltime.com/docs/api/reference/geocoding-search)
+* `geocoding_reverse()` [Reverse Geocoding](https://traveltime.com/docs/api/reference/geocoding-reverse)
+* `map_info()` [Map Info](https://traveltime.com/docs/api/reference/map-info)
+* `supported_locations()` [Supported Locations](https://traveltime.com/docs/api/reference/supported-locations)
+
+Check their function documentation for more examples.
 
 
