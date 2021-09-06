@@ -59,8 +59,8 @@ Also available:
     [Routes](https://traveltime.com/docs/api/reference/routes)
 -   `time_filter_fast()` [Time Filter
     (Fast)](https://traveltime.com/docs/api/reference/time-filter-fast)
--   `time_filter_postcode_districts(https://traveltime.com/docs/api/reference/postcode-district-filter)`
-    [Time Filter (Postcode Districts)]()
+-   `time_filter_postcode_districts()` [Time Filter (Postcode
+    Districts)](https://traveltime.com/docs/api/reference/postcode-district-filter)
 -   `time_filter_postcode_sectors()` [Time Filter (Postcode
     Sectors)](https://traveltime.com/docs/api/reference/postcode-sector-filter)
 -   `time_filter_postcodes()` [Time Filter
