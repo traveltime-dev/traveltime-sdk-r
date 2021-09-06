@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "email@email.email")
 Description: traveltimeR is a R wrapper for Travel Time API (https://traveltime.com/).
-  TravelTime API helps users find locations by journey time rather than using ‘as the crow flies’ distance.
+  Travel Time API helps users find locations by journey time rather than using ‘as the crow flies’ distance.
   Time-based searching gives users more opportunities for personalisation and delivers a more relevant search.
 License: MIT + file LICENSE
 Encoding: UTF-8

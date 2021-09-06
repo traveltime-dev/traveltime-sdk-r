@@ -7,7 +7,7 @@
 <!-- badges: end -->
 
 traveltimeR is a R wrapper for Travel Time API
-(<https://traveltime.com/>). TravelTime API helps users find locations
+(<https://traveltime.com/>). Travel Time API helps users find locations
 by journey time rather than using ‘as the crow flies’ distance.
 Time-based searching gives users more opportunities for personalisation
 and delivers a more relevant search.
