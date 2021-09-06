@@ -12,8 +12,9 @@
 #' @return API response parsed as list and as a raw json
 #' @export
 #'
-#' @examples
+#' @examples \dontrun{
 #' geocoding('Parliament square')
+#' }
 geocoding <- function(query, within.country = NA, exclude.location.types = NA) {
 
   queryFull <- c(query = query,

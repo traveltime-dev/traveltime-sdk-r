@@ -5,8 +5,9 @@ Authors@R:
     person(given = "Nikolay",
            family = "S",
            role = c("aut", "cre"),
-           email = "email@email.email")
-Description: traveltimeR is a R wrapper for Travel Time API (https://traveltime.com/).
+           email = "email@email.email",
+           comment = "https://github.com/s-Nick-s")
+Description: traveltimeR is a R SDK for Travel Time API (https://traveltime.com/).
   Travel Time API helps users find locations by journey time rather than using ‘as the crow flies’ distance.
   Time-based searching gives users more opportunities for personalisation and delivers a more relevant search.
 License: MIT + file LICENSE
@@ -18,5 +19,5 @@ Imports:
     data.table,
     httr,
     jsonlite
-URL: https://github.com/s-Nick-s/traveltimeR
-BugReports: https://github.com/s-Nick-s/traveltimeR/issues
+URL: https://github.com/traveltime-dev/traveltime-sdk-r
+BugReports: https://github.com/traveltime-dev/traveltime-sdk-r/issues

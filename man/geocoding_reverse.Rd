@@ -26,5 +26,7 @@ Attempt to match a latitude, longitude pair to an address.
 See \url{https://traveltime.com/docs/api/reference/geocoding-reverse} for details
 }
 \examples{
+\dontrun{
 geocoding_reverse(lat=51.507281, lng=-0.132120)
+}
 }

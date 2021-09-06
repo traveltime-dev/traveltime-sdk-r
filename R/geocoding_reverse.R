@@ -11,8 +11,9 @@
 #' @return API response parsed as list and as a raw json
 #' @export
 #'
-#' @examples
+#' @examples \dontrun{
 #' geocoding_reverse(lat=51.507281, lng=-0.132120)
+#' }
 geocoding_reverse <- function(lat, lng, within.country = NA, exclude.location.types = NA) {
 
   queryFull <- c(lat = lat,

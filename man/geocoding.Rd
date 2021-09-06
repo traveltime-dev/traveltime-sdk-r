@@ -24,5 +24,7 @@ Match a query string to geographic coordinates.
 See \url{https://traveltime.com/docs/api/reference/geocoding-search} for details
 }
 \examples{
+\dontrun{
 geocoding('Parliament square')
+}
 }

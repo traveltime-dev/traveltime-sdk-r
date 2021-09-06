@@ -1,16 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# R Interface to Travel Time
+# traveltimeR: Travel Time R SDK
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-traveltimeR is a R wrapper for Travel Time API
-(<https://traveltime.com/>). Travel Time API helps users find locations
-by journey time rather than using ‘as the crow flies’ distance.
-Time-based searching gives users more opportunities for personalisation
-and delivers a more relevant search.
+traveltimeR is a R SDK for Travel Time API (<https://traveltime.com/>).
+Travel Time API helps users find locations by journey time rather than
+using ‘as the crow flies’ distance. Time-based searching gives users
+more opportunities for personalisation and delivers a more relevant
+search.
 
 ## Installation
 
@@ -19,7 +19,7 @@ You can install the development version from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("s-Nick-s/traveltimeR")
+devtools::install_github("traveltime-dev/traveltime-sdk-r")
 ```
 
 ## Authentication
@@ -74,4 +74,4 @@ Also available:
 -   `supported_locations()` [Supported
     Locations](https://traveltime.com/docs/api/reference/supported-locations)
 
-Check their function documentation for more examples.
+Check function documentation for more examples.
