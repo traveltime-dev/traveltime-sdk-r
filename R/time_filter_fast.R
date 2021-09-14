@@ -13,6 +13,18 @@
 #' @export
 #'
 #' @examples \dontrun{
+#'
+#' locations <- c(
+#'   make_location(
+#'     id = 'London center',
+#'     coords = list(lat = 51.508930, lng = -0.131387)),
+#'   make_location(
+#'     id = 'Hyde Park',
+#'     coords = list(lat = 51.508824, lng = -0.167093)),
+#'   make_location(
+#'     id = 'ZSL London Zoo',
+#'     coords = list(lat = 51.536067, lng = -0.153596))
+#'   )
 #' arrival_many_to_one <- make_search(id = "arrive-at many-to-one search example",
 #'                                    arrival_location_id = "London center",
 #'                                    departure_location_ids = list("Hyde Park", "ZSL London Zoo"),
