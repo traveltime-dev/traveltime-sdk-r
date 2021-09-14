@@ -13,22 +13,9 @@
 #' @export
 #'
 #' @examples \dontrun{
-#' locations <- c(
-#'   make_location(
-#'     id = 'London center',
-#'     coords = list(lat = 51.508930, lng = -0.131387)),
-#'   make_location(
-#'     id = 'Hyde Park',
-#'     coords = list(lat = 51.508824, lng = -0.167093)),
-#'   make_location(
-#'     id = 'ZSL London Zoo',
-#'     coords = list(lat = 51.536067, lng = -0.153596))
-#' )
-#'
 #' arrival_many_to_one <- make_search(id = "arrive-at many-to-one search example",
 #'                                    arrival_location_id = "London center",
 #'                                    departure_location_ids = list("Hyde Park", "ZSL London Zoo"),
-#'                                    arrival_time = "2021-09-01T08:00:00Z",
 #'                                    travel_time = 1900,
 #'                                    transportation = list(type = "public_transport"),
 #'                                    properties = list('travel_time', "fares"),
@@ -37,11 +24,12 @@
 #' arrival_one_to_many <- make_search(id = "arrive-at one-to-many search example",
 #'                                    departure_location_id = "London center",
 #'                                    arrival_location_ids = list("Hyde Park", "ZSL London Zoo"),
-#'                                    arrival_time = "2021-09-01T08:00:00Z",
 #'                                    travel_time = 1900,
 #'                                    transportation = list(type = "public_transport"),
 #'                                    properties = list('travel_time', "fares"),
 #'                                    arrival_time_period = "weekday_morning")
+#'
+#' result <- time_filter_fast(locations, arrival_many_to_one, arrival_one_to_many)
 #' }
 time_filter_fast <- function(locations, arrival_many_to_one = NULL, arrival_one_to_many = NULL) {
 

@@ -25,10 +25,13 @@ make_search <- function(id, travel_time = NA, coords = NA, departure_time = NA, 
     stop("coords must be named lat/lng list!")
   }
 
-  if((is.na(departure_time) && is.na(arrival_time)) ||
-     (!is.na(departure_time) && !is.na(arrival_time))) {
+  #skip this check for time_filter_fast
+  if (!'arrival_time_period' %in% names(list(...)) &&
+      ((is.na(departure_time) && is.na(arrival_time)) ||
+       (!is.na(departure_time) && !is.na(arrival_time)))) {
     stop("Specify one of arrival_time/departure_time!")
   }
+
 
   add_search_args(
     id = id,
