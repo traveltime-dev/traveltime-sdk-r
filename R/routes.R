@@ -26,7 +26,7 @@
 #'   make_search(id = "departure search example",
 #'               departure_location_id = "London center",
 #'               arrival_location_ids = list("Hyde Park", "ZSL London Zoo"),
-#'               departure_time = "2021-09-01T08:00:00Z",
+#'               departure_time = strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ"),
 #'               travel_time = 1800,
 #'               transportation = list(type = "driving"),
 #'               properties = list("travel_time", "distance", "route"))
@@ -35,7 +35,7 @@
 #'   make_search(id = "arrival  search example",
 #'               arrival_location_id = "London center",
 #'               departure_location_ids = list("Hyde Park", "ZSL London Zoo"),
-#'               arrival_time = "2021-09-01T08:00:00Z",
+#'               arrival_time = strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ"),
 #'               travel_time = 1800,
 #'               transportation = list(type = "public_transport"),
 #'               properties = list('travel_time', "distance", "route", "fares"),

@@ -29,6 +29,7 @@ See \url{https://traveltime.com/docs/api/reference/time-filter-fast} for details
 }
 \examples{
 \dontrun{
+
 locations <- c(
   make_location(
     id = 'London center',
@@ -39,12 +40,10 @@ locations <- c(
   make_location(
     id = 'ZSL London Zoo',
     coords = list(lat = 51.536067, lng = -0.153596))
-)
-
+  )
 arrival_many_to_one <- make_search(id = "arrive-at many-to-one search example",
                                    arrival_location_id = "London center",
                                    departure_location_ids = list("Hyde Park", "ZSL London Zoo"),
-                                   arrival_time = "2021-09-01T08:00:00Z",
                                    travel_time = 1900,
                                    transportation = list(type = "public_transport"),
                                    properties = list('travel_time', "fares"),
@@ -53,10 +52,11 @@ arrival_many_to_one <- make_search(id = "arrive-at many-to-one search example",
 arrival_one_to_many <- make_search(id = "arrive-at one-to-many search example",
                                    departure_location_id = "London center",
                                    arrival_location_ids = list("Hyde Park", "ZSL London Zoo"),
-                                   arrival_time = "2021-09-01T08:00:00Z",
                                    travel_time = 1900,
                                    transportation = list(type = "public_transport"),
                                    properties = list('travel_time', "fares"),
                                    arrival_time_period = "weekday_morning")
+
+result <- time_filter_fast(locations, arrival_many_to_one, arrival_one_to_many)
 }
 }

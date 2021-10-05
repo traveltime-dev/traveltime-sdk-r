@@ -32,9 +32,12 @@ See \url{https://traveltime.com/docs/api/reference/isochrones} for details
 }
 \examples{
 \dontrun{
+
+dateTime <- strftime(as.POSIXlt(Sys.time(), "UTC"), "\%Y-\%m-\%dT\%H:\%M:\%SZ")
+
 departure_search1 <-
   make_search(id = "public transport from Trafalgar Square",
-              departure_time = "2021-09-01T08:00:00Z",
+              departure_time = dateTime,
               travel_time = 900,
               coords = list(lat = 51.507609, lng = -0.128315),
               transportation = list(type = "public_transport"),
@@ -42,14 +45,14 @@ departure_search1 <-
 
 departure_search2 <-
   make_search(id = "driving from Trafalgar Square",
-              departure_time = "2021-09-01T08:00:00Z",
+              departure_time = dateTime,
               travel_time = 900,
               coords = list(lat = 51.507609, lng = -0.128315),
               transportation = list(type = "driving"))
 
 arrival_search <-
   make_search(id = "public transport to Trafalgar Square",
-              arrival_time = "2021-09-01T08:00:00Z",
+              arrival_time = dateTime,
               travel_time = 900,
               coords = list(lat = 51.507609, lng = -0.128315),
               transportation = list(type = "public_transport"),
