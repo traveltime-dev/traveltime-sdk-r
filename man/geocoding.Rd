@@ -4,7 +4,7 @@
 \alias{geocoding}
 \title{Geocoding (Search)}
 \usage{
-geocoding(query, within.country = NA, exclude.location.types = NA)
+geocoding(query, within.country = NA, exclude.location.types = NA, bounds = NA)
 }
 \arguments{
 \item{query}{A query to geocode. Can be an address, a postcode or a venue.}
@@ -13,6 +13,10 @@ geocoding(query, within.country = NA, exclude.location.types = NA)
 If no results are found it will return the country itself. Optional. Format:ISO 3166-1 alpha-2 or alpha-3}
 
 \item{exclude.location.types}{Exclude location types from results. Available values: "country". Optional.}
+
+\item{bounds}{Used to limit the results to a bounding box. Expecting a character vector with four floats,
+marking a south-east and north-west corners of a rectangle: min-latitude,min-longitude,max-latitude,max-longitude.
+e.g. bounds for Scandinavia c(54.16243,4.04297,71.18316,31.81641). Optional.}
 }
 \value{
 API response parsed as list and as a raw json
