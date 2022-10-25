@@ -8,7 +8,8 @@ time_map(
   departure_searches = NULL,
   arrival_searches = NULL,
   unions = NULL,
-  intersections = NULL
+  intersections = NULL,
+  format = NULL
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ time_map(
 \item{unions}{One or more objects created by \code{\link{make_union_intersect}}}
 
 \item{intersections}{One or more objects created by \code{\link{make_union_intersect}}}
+
+\item{format}{time-map response format. See \url{https://docs.traveltime.com/api/reference/isochrones#Response-Body} for details.}
 }
 \value{
 API response parsed as a list and as a raw json

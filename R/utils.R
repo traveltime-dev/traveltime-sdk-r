@@ -17,7 +17,7 @@ get_ua <- function() {
   httr::user_agent("http://github.com/s-nick-s/traveltimeR")
 }
 
-get_api_headers <- function() {
+get_api_headers <- function(format = NULL) {
 
   id <- Sys.getenv('TRAVELTIME_ID')
   key <- Sys.getenv('TRAVELTIME_KEY')
@@ -31,36 +31,31 @@ get_api_headers <- function() {
          call. = FALSE)
   }
 
-  httr::add_headers(`X-Application-Id` = id, `X-Api-Key` = key)
+  httr::add_headers(`X-Application-Id` = id, `X-Api-Key` = key, `Accept` = format)
 }
 
 #' @importFrom utils head
-traveltime_api <- function(path, body = NULL, query = NULL) {
+traveltime_api <- function(path, body = NULL, query = NULL, format = NULL) {
 
   url <- httr::modify_url("https://api.traveltimeapp.com", path = c('v4', path), query = query)
 
   if (is.null(body)) {
     resp <- httr::GET(url = url, get_ua(), get_api_headers())
   } else {
-    resp <- httr::POST(url = url, get_ua(), get_api_headers(), body = body, encode = 'json')
+    resp <- httr::POST(url = url, get_ua(), get_api_headers(format = format), body = body, encode = 'json')
   }
-
-  if (httr::http_type(resp) != "application/json") {
-    stop("Travel Time API did not return json", call. = FALSE)
-  }
-
-  json <- httr::content(resp, "text", encoding = "UTF-8")
-  parsed <- jsonlite::fromJSON(json, simplifyVector = FALSE)
 
   if (httr::status_code(resp) != 200) {
-    info <- parsed$additional_info
+    errorResponse <- httr::content(resp, "text", encoding = "UTF-8")
+    parsedError <- jsonlite::fromJSON(errorResponse, simplifyVector = FALSE)
+    info <- parsedError$additional_info
     stop(
       sprintf(
         "Travel Time API request failed [%s]\n%s\nError code: %s\n<%s>\n",
         httr::status_code(resp),
-        parsed$description,
-        parsed$error_code,
-        parsed$documentation_link
+        parsedError$description,
+        parsedError$error_code,
+        parsedError$documentation_link
       ),
       head(names(info),1),
       " - ",
@@ -69,13 +64,29 @@ traveltime_api <- function(path, body = NULL, query = NULL) {
     )
   }
 
-  structure(
-    list(
-      contentParsed = parsed,
-      contentJSON = jsonlite::toJSON(parsed, auto_unbox = T, digits = 22)
-    ),
-    class = "traveltime_api"
-  )
+
+  if (httr::http_type(resp) == "application/json") {
+    json <- httr::content(resp, "text", encoding = "UTF-8")
+    parsed <- jsonlite::fromJSON(json, simplifyVector = FALSE)
+
+    structure(
+      list(
+        contentParsed = parsed,
+        contentJSON = jsonlite::toJSON(parsed, auto_unbox = T, digits = 22),
+        contentRaw = json
+      ),
+      class = "traveltime_api"
+    )
+  } else {
+    response <- httr::content(resp, "text", encoding = "UTF-8")
+
+    structure(
+      list(
+        contentRaw = response
+      ),
+      class = "traveltime_api"
+    )
+  }
 }
 
 add_search_args <- function(...) {

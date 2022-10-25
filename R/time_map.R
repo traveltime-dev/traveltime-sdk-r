@@ -9,6 +9,7 @@
 #' @param arrival_searches One or more objects created by \code{\link{make_search}}
 #' @param unions One or more objects created by \code{\link{make_union_intersect}}
 #' @param intersections One or more objects created by \code{\link{make_union_intersect}}
+#' @param format time-map response format. See \url{https://docs.traveltime.com/api/reference/isochrones#Response-Body} for details.
 #'
 #' @return API response parsed as a list and as a raw json
 #' @export
@@ -54,7 +55,12 @@
 #'     intersections = intersection
 #'   )
 #'}
-time_map <- function(departure_searches = NULL, arrival_searches = NULL, unions = NULL, intersections = NULL) {
+time_map <- function(
+  departure_searches = NULL,
+  arrival_searches = NULL,
+  unions = NULL,
+  intersections = NULL,
+  format = NULL) {
 
   if((is.null(departure_searches) && is.null(arrival_searches))) {
     stop("At least one of arrival_searches/departure_searches required!")
@@ -66,7 +72,5 @@ time_map <- function(departure_searches = NULL, arrival_searches = NULL, unions 
     unions = unions,
     intersections = intersections)
 
-  traveltime_api(path = 'time-map', body = build_body(body))
+  traveltime_api(path = 'time-map', body = build_body(body), format = format)
 }
-
-
