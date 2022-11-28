@@ -1,6 +1,6 @@
 Package: traveltimeR
 Title: R Interface to Travel Time
-Version: 0.0.0.9000
+Version: 1.1
 Authors@R: 
     person(given = "Nikolay",
            family = "S",
@@ -18,6 +18,8 @@ RoxygenNote: 7.2.1
 Imports: 
     data.table,
     httr,
-    jsonlite
+    jsonlite,
+    RProtoBuf
 URL: https://github.com/traveltime-dev/traveltime-sdk-r
 BugReports: https://github.com/traveltime-dev/traveltime-sdk-r/issues
+Depends: R (>= 2.10)
