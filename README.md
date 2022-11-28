@@ -194,6 +194,24 @@ result <- time_filter_fast(locations, arrival_many_to_one, arrival_one_to_many)
 print(result)
 ```
 
+### [Time Filter (Fast) with Protocol Buffers](https://docs.traveltime.com/api/start/travel-time-distance-matrix-proto#)
+The Travel Time Matrix (Fast) endpoint is available with even higher performance through a version using Protocol Buffers (Protobuf). This version of the API is built to create large travel time matrices with extremely low response times.
+
+```r
+time_filter_fast_proto(
+  departureLat = 51.508930,
+  departureLng = -0.131387,
+  destinationCoordinates = data.frame(
+    lat = c(51.508824, 51.536067),
+    lng = c(-0.167093, -0.153596)
+  ),
+  transportation = 'driving+ferry',
+  travelTime = 7200,
+  country = "uk",
+  useDistance = F
+)
+```
+
 ### [Time Filter (Postcode Districts)](https://traveltime.com/docs/api/reference/postcode-district-filter)
 Find districts that have a certain coverage from origin (or to destination) and get statistics about postcodes within such districts.
 Currently only supports United Kingdom.
