@@ -19,7 +19,7 @@ devtools::install_github("traveltime-dev/traveltime-sdk-r")
 
 ### System requirements
 
-`traveltimeR` uses [rprotobuf](https://github.com/eddelbuettel/rprotobuf) as a dependency. If your package installation fails, please make sure you have the system requirements covered for for `rprotobuf`
+`traveltimeR` uses [rprotobuf](https://github.com/eddelbuettel/rprotobuf) as a dependency. If your package installation fails, please make sure you have the system requirements covered for `rprotobuf`
 
 #### Debian/Ubuntu
 ```bash
