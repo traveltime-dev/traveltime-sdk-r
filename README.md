@@ -1,10 +1,5 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # traveltimeR: Travel Time R SDK
-
-<!-- badges: start -->
-<!-- badges: end -->
 
 traveltimeR is a R SDK for Travel Time API (<https://traveltime.com/>).
 Travel Time API helps users find locations by journey time rather than
@@ -21,6 +16,22 @@ You can install the development version from
 # install.packages("devtools")
 devtools::install_github("traveltime-dev/traveltime-sdk-r")
 ```
+
+### System requirements
+
+`traveltimeR` uses [rprotobuf](https://github.com/eddelbuettel/rprotobuf) as a dependency. If your package installation fails, please make sure you have the system requirements covered for for `rprotobuf`
+
+#### Debian/Ubuntu
+```bash
+sudo apt-get install protobuf-compiler libprotobuf-dev libprotoc-dev
+```
+
+#### MacOS
+```bash
+brew install protobuf
+```
+
+There also exists similar commands on other distributions or operating systems.
 
 ## Authentication
 
