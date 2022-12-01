@@ -135,8 +135,8 @@ departure_search <-
               departure_location_id = "London center",
               arrival_location_ids = list("Hyde Park", "ZSL London Zoo"),
               departure_time = strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ"),
-              properties = list("travel_time", "distance", "route")),
-              transportation = list(type = "driving")
+              properties = list("travel_time", "distance", "route"),
+              transportation = list(type = "driving"))
 
 arrival_search <-
   make_search(id = "arrival  search example",
