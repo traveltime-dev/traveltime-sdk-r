@@ -29,15 +29,12 @@ See \url{https://traveltime.com/docs/api/reference/isochrones-fast} for details
 \examples{
 \dontrun{
 
-dateTime <- strftime(as.POSIXlt(Sys.time(), "UTC"), "\%Y-\%m-\%dT\%H:\%M:\%SZ")
-
 arrival_search <-
   make_search(id = "public transport to Trafalgar Square",
-              arrival_time = dateTime,
               travel_time = 900,
               coords = list(lat = 51.507609, lng = -0.128315),
-              transportation = list(type = "public_transport"),
-              range = list(enabled = T, width = 3600))
+              arrival_time_period = "weekday_morning"
+              transportation = list(type = "public_transport"))
 
 result <-
   time_map_fast(

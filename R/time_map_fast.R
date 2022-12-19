@@ -6,22 +6,19 @@
 #'
 #' @param arrival_many_to_one One or more objects created by \code{\link{make_search}}
 #' @param arrival_one_to_many One or more objects created by \code{\link{make_search}}
-#' @param format time-map response format. See \url{https://docs.traveltime.com/api/reference/isochrones#Response-Body} for details.
+#' @param format time-map response format. See \url{https://docs.traveltime.com/api/reference/isochrones-fast#Response-Body} for details.
 #'
 #' @return API response parsed as a list and as a raw json
 #' @export
 #'
 #' @examples \dontrun{
 #'
-#' dateTime <- strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ")
-#'
 #' arrival_search <-
 #'   make_search(id = "public transport to Trafalgar Square",
-#'               arrival_time = dateTime,
 #'               travel_time = 900,
 #'               coords = list(lat = 51.507609, lng = -0.128315),
-#'               transportation = list(type = "public_transport"),
-#'               range = list(enabled = T, width = 3600))
+#'               arrival_time_period = "weekday_morning"
+#'               transportation = list(type = "public_transport"))
 #'
 #' result <-
 #'   time_map_fast(
