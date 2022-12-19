@@ -1,4 +1,4 @@
-#' Isochrones (Time Map)
+#' Isochrones (Time Map) Fast
 #'
 #' A very fast version of Isochrone API. However, the request parameters are much more limited.
 #'
