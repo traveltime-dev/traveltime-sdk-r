@@ -13,8 +13,6 @@ geocoding_reverse(lat, lng, within.country = NA, exclude.location.types = NA)
 
 \item{within.country}{Only return the results that are within the specified country.
 If no results are found it will return the country itself. Optional. Format:ISO 3166-1 alpha-2 or alpha-3}
-
-\item{exclude.location.types}{Exclude location types from results. Available values: "country". Optional.}
 }
 \value{
 API response parsed as list and as a raw json

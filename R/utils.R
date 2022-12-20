@@ -14,7 +14,7 @@ build_body <- function(body) {
 }
 
 get_ua <- function() {
-  httr::user_agent("https://github.com/traveltime-dev/traveltime-sdk-r")
+  httr::user_agent("Travel Time R SDK")
 }
 
 get_api_headers <- function(format = NULL, contentType = NULL) {
