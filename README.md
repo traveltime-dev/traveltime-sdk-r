@@ -347,7 +347,7 @@ print(result)
 Match a query string to geographic coordinates.
 
 Function accepts object that might has these properties:
-* `acceptLanguage` - [Request geocoding results to be in specific language if it is available.](http://localhost:3000/api/reference/geocoding-search#Accept-Language)
+* `acceptLanguage` - [Request geocoding results to be in specific language if it is available.](https://docs.traveltime.com/api/reference/geocoding-search#Accept-Language)
 * `params` - object that matches API json spec.
 
 ```r
