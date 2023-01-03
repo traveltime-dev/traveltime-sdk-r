@@ -1,11 +1,8 @@
 
-# traveltimeR: Travel Time R SDK
+# Travel Time R SDK
 
-traveltimeR is a R SDK for Travel Time API (<https://traveltime.com/>).
-Travel Time API helps users find locations by journey time rather than
-using ‘as the crow flies’ distance. Time-based searching gives users
-more opportunities for personalisation and delivers a more relevant
-search.
+[Travel Time](https://docs.traveltime.com/api/overview/introduction) Python SDK helps users find locations by journey time rather than using ‘as the crow flies’ distance.  
+Time-based searching gives users more opportunities for personalisation and delivers a more relevant search.
 
 ## Installation
 
@@ -42,15 +39,17 @@ the Application Id and Api Key.
 library(traveltimeR)
 
 #store your credentials in an environment variable
-Sys.setenv(TRAVELTIME_ID = "YOUR_API_ID")
-Sys.setenv(TRAVELTIME_KEY = "YOUR_API_KEY")
+Sys.setenv(TRAVELTIME_ID = "YOUR_APP_ID")
+Sys.setenv(TRAVELTIME_KEY = "YOUR_APP_KEY")
 ```
 
 ## Usage
 
 ### [Isochrones (Time Map)](https://traveltime.com/docs/api/reference/isochrones)
-Given origin coordinates, find shapes of zones reachable within corresponding travel time.
-Find unions/intersections between different searches.
+
+Given origin coordinates, find shapes of zones reachable within corresponding travel time. Find unions/intersections between different searches.
+
+Function accepts object that matches API json spec.
 
 ```r
 dateTime <- strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ")
@@ -80,26 +79,14 @@ result <-
 print(result)
 ```
 
-### [Isochrones (Time Map) Fast](https://docs.traveltime.com/api/reference/isochrones-fast)
-A very fast version of Isochrone API. However, the request parameters are much more limited.
-
-```r
-arrival_search <-
-  make_search(id = "public transport to Trafalgar Square",
-              travel_time = 900,
-              coords = list(lat = 51.507609, lng = -0.128315),
-              arrival_time_period = "weekday_morning"
-              transportation = list(type = "public_transport"))
-
-result <-
-  time_map_fast(
-    arrival_searches = arrival_search
- )
-```
-
 ### [Distance Matrix (Time Filter)](https://traveltime.com/docs/api/reference/distance-matrix)
 Given origin and destination points filter out points that cannot be reached within specified time limit.
 Find out travel times, distances and costs between an origin and up to 2,000 destination points.
+
+Body attributes:
+* locations: Locations to use. Each location requires an id and lat/lng values.
+* departure_searches: Searches based on departure times. Leave departure location at no earlier than given time. You can define a maximum of 10 searches.
+* arrival_searches: Searches based on arrival times. Arrive at destination location at no later than given time. You can define a maximum of 10 searches.
 
 ```r
 locationsDF <- data.frame(
@@ -145,6 +132,11 @@ print(result)
 ### [Routes](https://traveltime.com/docs/api/reference/routes)
 Returns routing information between source and destinations.
 
+Body attributes:
+* locations: Locations to use. Each location requires an id and lat/lng values.
+* departure_searches: Searches based on departure times. Leave departure location at no earlier than given time. You can define a maximum of 10 searches.
+* arrival_searches: Searches based on arrival times. Arrive at destination location at no later than given time. You can define a maximum of 10 searches.
+
 ```r
 locations <- c(
   make_location(
@@ -186,7 +178,7 @@ print(result)
 ```
 
 ### [Time Filter (Fast)](https://traveltime.com/docs/api/reference/time-filter-fast)
-A very fast version of time_filter().
+A very fast version of `time_filter()`.
 However, the request parameters are much more limited.
 Currently only supports UK and Ireland.
 
@@ -222,8 +214,21 @@ result <- time_filter_fast(locations, arrival_many_to_one, arrival_one_to_many)
 print(result)
 ```
 
-### [Time Filter (Fast) with Protocol Buffers](https://docs.traveltime.com/api/start/travel-time-distance-matrix-proto#)
-The Travel Time Matrix (Fast) endpoint is available with even higher performance through a version using Protocol Buffers (Protobuf). This version of the API is built to create large travel time matrices with extremely low response times.
+### [Time Filter Fast (Proto)](https://docs.traveltime.com/api/start/travel-time-distance-matrix-proto#)
+
+A fast version of time filter communicating using [protocol buffers](https://github.com/protocolbuffers/protobuf).
+
+The request parameters are much more limited and only travel time is returned. In addition, the results are only approximately correct (95% of the results are guaranteed to be within 5% of the routes returned by regular time filter).
+
+This inflexibility comes with a benefit of faster response times (Over 5x faster compared to regular time filter) and larger limits on the amount of destination points.
+
+Body attributes:
+* departureLat: Origin point latitude.
+* departureLng: Origin point longitude.
+* destinationCoordinates: Destination points. Cannot be more than 200,000.
+* transportation: Transportation type.
+* travelTime: Time limit.
+* country: Return the results that are within the specified country.
 
 ```r
 time_filter_fast_proto(
@@ -241,8 +246,9 @@ time_filter_fast_proto(
 ```
 
 ### [Time Filter (Postcode Districts)](https://traveltime.com/docs/api/reference/postcode-district-filter)
-Find districts that have a certain coverage from origin (or to destination) and get statistics about postcodes within such districts.
-Currently only supports United Kingdom.
+Find reachable postcodes from origin (or to destination) and get statistics about such postcodes. Currently only supports United Kingdom.
+
+Function accepts object that matches API json spec.
 
 ```r
 departure_search <-
@@ -273,8 +279,9 @@ print(result)
 ```
 
 ### [Time Filter (Postcode Sectors)](https://traveltime.com/docs/api/reference/postcode-sector-filter)
-Find sectors that have a certain coverage from origin (or to destination) and get statistics about postcodes within such sectors.
-Currently only supports United Kingdom.
+Find sectors that have a certain coverage from origin (or to destination) and get statistics about postcodes within such sectors. Currently only supports United Kingdom.
+
+Function accepts object that matches API json spec.
 
 ```r
 departure_search <-
@@ -305,8 +312,10 @@ print(result)
 ```
 
 ### [Time Filter (Postcodes)](https://traveltime.com/docs/api/reference/postcode-search)
-Find reachable postcodes from origin (or to destination) and get statistics about such postcodes.
-Currently only supports United Kingdom.
+
+Find reachable postcodes from origin (or to destination) and get statistics about such postcodes. Currently only supports United Kingdom.
+
+Function accepts object that matches API json spec.
 
 ```r
 departure_search <-
@@ -337,12 +346,20 @@ print(result)
 ### [Geocoding (Search)](https://traveltime.com/docs/api/reference/geocoding-search) 
 Match a query string to geographic coordinates.
 
+Function accepts object that might has these properties:
+* `acceptLanguage` - [Request geocoding results to be in specific language if it is available.](http://localhost:3000/api/reference/geocoding-search#Accept-Language)
+* `params` - object that matches API json spec.
+
 ```r
 geocoding('Parliament square')
 ```
 
 ### [Reverse Geocoding](https://traveltime.com/docs/api/reference/geocoding-reverse)
 Attempt to match a latitude, longitude pair to an address.
+
+Function accepts object that might has these properties:
+* `acceptLanguage` - [Request geocoding results to be in specific language if it is available.](http://localhost:3000/api/reference/geocoding-search#Accept-Language)
+* `params` - object that matches API json spec.
 
 ```r
 geocoding_reverse(lat=51.507281, lng=-0.132120)
@@ -357,6 +374,8 @@ map_info()
 
 ### [Supported Locations](https://traveltime.com/docs/api/reference/supported-locations)
 Find out what points are supported by the api.
+
+Function accepts object that matches API json spec.
 
 ```r
 locationsDF <- data.frame(
