@@ -1,7 +1,7 @@
 
 # Travel Time R SDK
 
-[Travel Time](https://docs.traveltime.com/api/overview/introduction) Python SDK helps users find locations by journey time rather than using ‘as the crow flies’ distance.  
+[Travel Time](https://docs.traveltime.com/api/overview/introduction) R SDK helps users find locations by journey time rather than using ‘as the crow flies’ distance.  
 Time-based searching gives users more opportunities for personalisation and delivers a more relevant search.
 
 ## Installation
@@ -46,10 +46,7 @@ Sys.setenv(TRAVELTIME_KEY = "YOUR_APP_KEY")
 ## Usage
 
 ### [Isochrones (Time Map)](https://traveltime.com/docs/api/reference/isochrones)
-
 Given origin coordinates, find shapes of zones reachable within corresponding travel time. Find unions/intersections between different searches.
-
-Function accepts object that matches API json spec.
 
 ```r
 dateTime <- strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ")
@@ -215,7 +212,6 @@ print(result)
 ```
 
 ### [Time Filter Fast (Proto)](https://docs.traveltime.com/api/start/travel-time-distance-matrix-proto#)
-
 A fast version of time filter communicating using [protocol buffers](https://github.com/protocolbuffers/protobuf).
 
 The request parameters are much more limited and only travel time is returned. In addition, the results are only approximately correct (95% of the results are guaranteed to be within 5% of the routes returned by regular time filter).
@@ -248,8 +244,6 @@ time_filter_fast_proto(
 ### [Time Filter (Postcode Districts)](https://traveltime.com/docs/api/reference/postcode-district-filter)
 Find reachable postcodes from origin (or to destination) and get statistics about such postcodes. Currently only supports United Kingdom.
 
-Function accepts object that matches API json spec.
-
 ```r
 departure_search <-
   make_search(id = "public transport from Trafalgar Square",
@@ -281,8 +275,6 @@ print(result)
 ### [Time Filter (Postcode Sectors)](https://traveltime.com/docs/api/reference/postcode-sector-filter)
 Find sectors that have a certain coverage from origin (or to destination) and get statistics about postcodes within such sectors. Currently only supports United Kingdom.
 
-Function accepts object that matches API json spec.
-
 ```r
 departure_search <-
   make_search(id = "public transport from Trafalgar Square",
@@ -312,10 +304,7 @@ print(result)
 ```
 
 ### [Time Filter (Postcodes)](https://traveltime.com/docs/api/reference/postcode-search)
-
 Find reachable postcodes from origin (or to destination) and get statistics about such postcodes. Currently only supports United Kingdom.
-
-Function accepts object that matches API json spec.
 
 ```r
 departure_search <-
@@ -374,8 +363,6 @@ map_info()
 
 ### [Supported Locations](https://traveltime.com/docs/api/reference/supported-locations)
 Find out what points are supported by the api.
-
-Function accepts object that matches API json spec.
 
 ```r
 locationsDF <- data.frame(
