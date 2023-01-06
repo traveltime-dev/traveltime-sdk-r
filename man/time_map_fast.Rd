@@ -2,7 +2,7 @@
 % Please edit documentation in R/time_map_fast.R
 \name{time_map_fast}
 \alias{time_map_fast}
-\title{Isochrones (Time Map)}
+\title{Isochrones (Time Map) Fast}
 \usage{
 time_map_fast(
   arrival_many_to_one = NULL,
@@ -15,7 +15,7 @@ time_map_fast(
 
 \item{arrival_one_to_many}{One or more objects created by \code{\link{make_search}}}
 
-\item{format}{time-map response format. See \url{https://docs.traveltime.com/api/reference/isochrones#Response-Body} for details.}
+\item{format}{time-map response format. See \url{https://docs.traveltime.com/api/reference/isochrones-fast#Response-Body} for details.}
 }
 \value{
 API response parsed as a list and as a raw json
@@ -33,12 +33,12 @@ arrival_search <-
   make_search(id = "public transport to Trafalgar Square",
               travel_time = 900,
               coords = list(lat = 51.507609, lng = -0.128315),
-              arrival_time_period = "weekday_morning"
+              arrival_time_period = "weekday_morning",
               transportation = list(type = "public_transport"))
 
 result <-
   time_map_fast(
-    arrival_searches = arrival_search
+    arrival_many_to_one = arrival_search
   )
 }
 }

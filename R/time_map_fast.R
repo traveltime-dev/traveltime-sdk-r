@@ -17,12 +17,12 @@
 #'   make_search(id = "public transport to Trafalgar Square",
 #'               travel_time = 900,
 #'               coords = list(lat = 51.507609, lng = -0.128315),
-#'               arrival_time_period = "weekday_morning"
+#'               arrival_time_period = "weekday_morning",
 #'               transportation = list(type = "public_transport"))
 #'
 #' result <-
 #'   time_map_fast(
-#'     arrival_searches = arrival_search
+#'     arrival_many_to_one = arrival_search
 #'   )
 #'}
 time_map_fast <- function(
