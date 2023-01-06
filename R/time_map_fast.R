@@ -13,22 +13,17 @@
 #'
 #' @examples \dontrun{
 #'
-#'arrival_search = {
-#'  id: "public transport to Trafalgar Square",
-#'  coords: {
-#'    lat: 51.506756,
-#'    lng: -0.128050
-#'  },
-#'  transportation: { type: "public_transport" },
-#'  arrival_time_period: 'weekday_morning',
-#'  travel_time: 1800,
-#'}
+#' arrival_search <-
+#'   make_search(id = "public transport to Trafalgar Square",
+#'               travel_time = 900,
+#'               coords = list(lat = 51.507609, lng = -0.128315),
+#'               arrival_time_period = "weekday_morning",
+#'               transportation = list(type = "public_transport"))
 #'
-#'response = client.time_map_fast(
-#'  arrival_searches: {
-#'    one_to_many: [arrival_search]
-#'  },
-#')
+#' result <-
+#'   time_map_fast(
+#'     arrival_many_to_one = arrival_search
+#'   )
 #'}
 time_map_fast <- function(
     arrival_many_to_one = NULL,
