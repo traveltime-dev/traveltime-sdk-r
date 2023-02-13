@@ -20,14 +20,11 @@
 #' geocoding('Parliament square')
 #' }
 geocoding <- function(query, within.country = NA, format.name = NA, format.exclude.country = NA, bounds = NA) {
-
   queryFull <- c(query = query,
-                 within.country = within.country,
+                 within.country = paste(within.country, collapse=",")[!missing(within.country)],
                  format.name = format.name,
                  format.exclude.country = format.exclude.country[!missing(format.name)],
                  bounds = paste(as.character(bounds), collapse=",")[!missing(bounds)])
-
+                 
   traveltime_api(path = c('geocoding', 'search'), query = as.list(queryFull)[!is.na(queryFull)])
 }
-
-

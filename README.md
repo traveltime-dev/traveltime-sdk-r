@@ -335,9 +335,12 @@ print(result)
 ### [Geocoding (Search)](https://traveltime.com/docs/api/reference/geocoding-search) 
 Match a query string to geographic coordinates.
 
-Function accepts object that might has these properties:
-* `acceptLanguage` - [Request geocoding results to be in specific language if it is available.](https://docs.traveltime.com/api/reference/geocoding-search#Accept-Language)
-* `params` - object that matches API json spec.
+Function accepts the following parameters:
+* `query` - A query to geocode. Can be an address, a postcode or a venue.
+* `within.country` - Only return the results that are within the specified country or countries. If no results are found it will return the country itself. Optional. Format:ISO 3166-1 alpha-2 or alpha-3.
+* `format.exclude.country` - Format the name field of the response to a well formatted, human-readable address of the location. Experimental. Optional.
+* `format.name` - Exclude the country from the formatted name field (used only if format.name is equal true). Optional.
+* `bounds` - Used to limit the results to a bounding box. Expecting a character vector with four floats, marking a south-east and north-west corners of a rectangle: min-latitude,min-longitude,max-latitude,max-longitude. e.g. bounds for Scandinavia c(54.16243,4.04297,71.18316,31.81641). Optional.
 
 ```r
 geocoding('Parliament square')
@@ -346,9 +349,10 @@ geocoding('Parliament square')
 ### [Reverse Geocoding](https://traveltime.com/docs/api/reference/geocoding-reverse)
 Attempt to match a latitude, longitude pair to an address.
 
-Function accepts object that might has these properties:
-* `acceptLanguage` - [Request geocoding results to be in specific language if it is available.](https://docs.traveltime.com/api/reference/geocoding-reverse#Accept-Language)
-* `params` - object that matches API json spec.
+Function accepts the following parameters:
+
+* `lat` - Latitude of the point to reverse geocode.
+* `lng` - lng Longitude of the point to reverse geocode.
 
 ```r
 geocoding_reverse(lat=51.507281, lng=-0.132120)
