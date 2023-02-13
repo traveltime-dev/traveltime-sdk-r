@@ -14,12 +14,10 @@
 #' @examples \dontrun{
 #' geocoding_reverse(lat=51.507281, lng=-0.132120)
 #' }
-geocoding_reverse <- function(lat, lng, within.country = NA, exclude.location.types = NA) {
+geocoding_reverse <- function(lat, lng) {
 
   queryFull <- c(lat = lat,
-                 lng = lng,
-                 within.country = within.country,
-                 exclude.location.types = exclude.location.types)
+                 lng = lng)
 
   traveltime_api(path = c('geocoding', 'reverse'), query = as.list(queryFull)[!is.na(queryFull)])
 }
