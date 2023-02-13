@@ -335,7 +335,7 @@ print(result)
 ### [Geocoding (Search)](https://traveltime.com/docs/api/reference/geocoding-search) 
 Match a query string to geographic coordinates.
 
-Function accepts object that might has these properties:
+Function accepts the following parameters:
 * `query` - A query to geocode. Can be an address, a postcode or a venue.
 * `within.country` - Only return the results that are within the specified country or countries. If no results are found it will return the country itself. Optional. Format:ISO 3166-1 alpha-2 or alpha-3.
 * `format.exclude.country` - Format the name field of the response to a well formatted, human-readable address of the location. Experimental. Optional.
@@ -349,7 +349,8 @@ geocoding('Parliament square')
 ### [Reverse Geocoding](https://traveltime.com/docs/api/reference/geocoding-reverse)
 Attempt to match a latitude, longitude pair to an address.
 
-Function accepts object that might has these properties:
+Function accepts the following parameters:
+
 * `lat` - Latitude of the point to reverse geocode.
 * `lng` - lng Longitude of the point to reverse geocode.
 
