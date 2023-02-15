@@ -11,3 +11,4 @@
 ^\.\.Rcheck$
 ^\.git$
 ^\./\.\.Rcheck$
+^cran-comments\.md$

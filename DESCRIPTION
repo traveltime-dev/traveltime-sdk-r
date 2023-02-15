@@ -4,8 +4,8 @@ Version: 1.1
 Description: traveltimeR is a R SDK for Travel Time API (https://traveltime.com/).
   Travel Time API helps users find locations by journey time rather than using ‘as the crow flies’ distance.
   Time-based searching gives users more opportunities for personalisation and delivers a more relevant search.
-Author: person(given = "TravelTime", email = "support@traveltime.com", role = c("aut", "cre"), comment = "https://github.com/traveltime-dev")
-Maintainer: TravelTime <support@traveltime.com>
+Author: person(given = "TravelTime", email = "frontend@traveltime.com", role = c("aut", "cre"), comment = "https://github.com/traveltime-dev")
+Maintainer: TravelTime <frontend@traveltime.com>
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
