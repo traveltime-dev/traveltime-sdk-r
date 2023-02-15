@@ -10,3 +10,4 @@
 ^R/proto/\.DS_Store$
 ^\.\.Rcheck$
 ^\.git$
+^\./\.\.Rcheck$

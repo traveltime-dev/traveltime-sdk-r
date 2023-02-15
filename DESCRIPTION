@@ -8,7 +8,6 @@ Author: person(given = "TravelTime", email = "support@traveltime.com", role = c(
 Maintainer: TravelTime <support@traveltime.com>
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
