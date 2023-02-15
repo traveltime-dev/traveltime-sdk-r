@@ -4,15 +4,12 @@
 \alias{geocoding_reverse}
 \title{Reverse Geocoding}
 \usage{
-geocoding_reverse(lat, lng, within.country = NA, exclude.location.types = NA)
+geocoding_reverse(lat, lng)
 }
 \arguments{
 \item{lat}{Latitude of the point to reverse geocode.}
 
 \item{lng}{Longitude of the point to reverse geocode.}
-
-\item{within.country}{Only return the results that are within the specified country.
-If no results are found it will return the country itself. Optional. Format:ISO 3166-1 alpha-2 or alpha-3}
 }
 \value{
 API response parsed as list and as a raw json
