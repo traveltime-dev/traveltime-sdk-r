@@ -3,3 +3,10 @@
 ^LICENSE\.md$
 ^README\.Rmd$
 ^data-raw$
+^\.DS_Store$
+^\.Rhistory$
+^\.gitignore$
+^R/\.DS_Store$
+^R/proto/\.DS_Store$
+^\.\.Rcheck$
+^\.git$
