@@ -18,7 +18,7 @@ The returned map name for a point can be used to determine what features are sup
 See also the \code{\link{map_info}}.
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/supported-locations} for details
+See \url{https://docs.traveltime.com/api/reference/supported-locations/} for details
 }
 \examples{
 \dontrun{

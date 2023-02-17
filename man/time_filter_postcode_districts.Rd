@@ -22,7 +22,7 @@ Find districts that have a certain coverage from origin (or to destination) and 
 Currently only supports United Kingdom.
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/postcode-district-filter} for details
+See \url{https://docs.traveltime.com/api/reference/postcode-district-filter/} for details
 }
 \examples{
 \dontrun{

@@ -13,7 +13,7 @@ API response parsed as list and as a raw json
 Returns information about currently supported countries.
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/map-info} for details
+See \url{https://docs.traveltime.com/api/reference/map-info/} for details
 }
 \examples{
 \dontrun{

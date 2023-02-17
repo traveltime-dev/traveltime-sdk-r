@@ -33,7 +33,7 @@ API response parsed as list and as a raw json
 Match a query string to geographic coordinates.
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/geocoding-search} for details
+See \url{https://docs.traveltime.com/api/reference/geocoding-search/} for details
 }
 \examples{
 \dontrun{

@@ -24,7 +24,7 @@ API response parsed as a list and as a raw json
 A very fast version of Isochrone API. However, the request parameters are much more limited.
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/isochrones-fast} for details
+See \url{https://docs.traveltime.com/api/reference/isochrones-fast/} for details
 }
 \examples{
 \dontrun{

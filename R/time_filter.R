@@ -3,7 +3,7 @@
 #' Given origin and destination points filter out points that cannot be reached within specified time limit.
 #' Find out travel times, distances and costs between an origin and up to 2,000 destination points.
 #'
-#' See \url{https://traveltime.com/docs/api/reference/distance-matrix} for details
+#' See \url{https://docs.traveltime.com/api/reference/travel-time-distance-matrix/} for details
 #'
 #' @param locations One or more objects created by \code{\link{make_location}}
 #' @inheritParams time_map

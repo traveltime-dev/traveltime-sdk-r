@@ -2,7 +2,7 @@
 #'
 #' Returns routing information between source and destinations.
 #'
-#' See \url{https://traveltime.com/docs/api/reference/routes} for details
+#' See \url{https://docs.traveltime.com/api/reference/routes/} for details
 #'
 #' @inheritParams time_filter
 #'

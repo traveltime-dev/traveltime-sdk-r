@@ -4,7 +4,7 @@
 #' The returned map name for a point can be used to determine what features are supported.
 #' See also the \code{\link{map_info}}.
 #'
-#'See \url{https://traveltime.com/docs/api/reference/supported-locations} for details
+#'See \url{https://docs.traveltime.com/api/reference/supported-locations/} for details
 #'
 #' @inheritParams time_filter
 #' @return API response parsed as list and as a raw json

@@ -25,7 +25,7 @@ A very fast version of \code{\link{time_filter}}. However, the request parameter
 Currently only supports UK and Ireland.
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/time-filter-fast} for details
+See \url{https://docs.traveltime.com/api/reference/time-filter-fast/} for details
 }
 \examples{
 \dontrun{

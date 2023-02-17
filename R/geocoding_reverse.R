@@ -2,7 +2,7 @@
 #'
 #' Attempt to match a latitude, longitude pair to an address.
 #'
-#' See \url{https://traveltime.com/docs/api/reference/geocoding-reverse} for details
+#' See \url{https://docs.traveltime.com/api/reference/geocoding-reverse/} for details
 #'
 #' @param lat Latitude of the point to reverse geocode.
 #' @param lng Longitude of the point to reverse geocode.

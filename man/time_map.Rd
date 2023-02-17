@@ -31,7 +31,7 @@ Given origin coordinates, find shapes of zones reachable within corresponding tr
 Find unions/intersections between different searches
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/isochrones} for details
+See \url{https://docs.traveltime.com/api/reference/isochrones/} for details
 }
 \examples{
 \dontrun{

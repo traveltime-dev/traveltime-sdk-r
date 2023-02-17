@@ -21,7 +21,7 @@ Given origin and destination points filter out points that cannot be reached wit
 Find out travel times, distances and costs between an origin and up to 2,000 destination points.
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/distance-matrix} for details
+See \url{https://docs.traveltime.com/api/reference/travel-time-distance-matrix/} for details
 }
 \examples{
 \dontrun{
