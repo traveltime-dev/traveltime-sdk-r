@@ -45,7 +45,7 @@ Sys.setenv(TRAVELTIME_KEY = "YOUR_APP_KEY")
 
 ## Usage
 
-### [Isochrones (Time Map)](https://traveltime.com/docs/api/reference/isochrones)
+### [Isochrones (Time Map)](https://docs.traveltime.com/api/reference/isochrones)
 Given origin coordinates, find shapes of zones reachable within corresponding travel time. Find unions/intersections between different searches.
 
 ```r
@@ -76,7 +76,7 @@ result <-
 print(result)
 ```
 
-### [Distance Matrix (Time Filter)](https://traveltime.com/docs/api/reference/distance-matrix)
+### [Distance Matrix (Time Filter)](https://docs.traveltime.com/api/reference/distance-matrix)
 Given origin and destination points filter out points that cannot be reached within specified time limit.
 Find out travel times, distances and costs between an origin and up to 2,000 destination points.
 
@@ -126,7 +126,7 @@ result <-
 print(result)
 ```
 
-### [Time Filter (Fast)](https://traveltime.com/docs/api/reference/time-filter-fast)
+### [Time Filter (Fast)](https://docs.traveltime.com/api/reference/time-filter-fast)
 A very fast version of `time_filter()`.
 However, the request parameters are much more limited.
 Currently only supports UK and Ireland.
@@ -193,7 +193,7 @@ time_filter_fast_proto(
 )
 ```
 
-### [Time Filter (Postcodes)](https://traveltime.com/docs/api/reference/postcode-search)
+### [Time Filter (Postcodes)](https://docs.traveltime.com/api/reference/postcode-search)
 Find reachable postcodes from origin (or to destination) and get statistics about such postcodes. Currently only supports United Kingdom.
 
 ```r
@@ -222,7 +222,7 @@ result <-
 print(result)
 ```
 
-### [Time Filter (Postcode Districts)](https://traveltime.com/docs/api/reference/postcode-district-filter)
+### [Time Filter (Postcode Districts)](https://docs.traveltime.com/api/reference/postcode-district-filter)
 Find reachable postcodes from origin (or to destination) and get statistics about such postcodes. Currently only supports United Kingdom.
 
 ```r
@@ -253,7 +253,7 @@ result <-
 print(result)
 ```
 
-### [Time Filter (Postcode Sectors)](https://traveltime.com/docs/api/reference/postcode-sector-filter)
+### [Time Filter (Postcode Sectors)](https://docs.traveltime.com/api/reference/postcode-sector-filter)
 Find sectors that have a certain coverage from origin (or to destination) and get statistics about postcodes within such sectors. Currently only supports United Kingdom.
 
 ```r
@@ -284,7 +284,7 @@ result <-
 print(result)
 ```
 
-### [Routes](https://traveltime.com/docs/api/reference/routes)
+### [Routes](https://docs.traveltime.com/api/reference/routes)
 Returns routing information between source and destinations.
 
 Body attributes:
@@ -332,7 +332,7 @@ result <-
 print(result)
 ```
 
-### [Geocoding (Search)](https://traveltime.com/docs/api/reference/geocoding-search) 
+### [Geocoding (Search)](https://docs.traveltime.com/api/reference/geocoding-search) 
 Match a query string to geographic coordinates.
 
 Function accepts the following parameters:
@@ -346,7 +346,7 @@ Function accepts the following parameters:
 geocoding('Parliament square')
 ```
 
-### [Reverse Geocoding](https://traveltime.com/docs/api/reference/geocoding-reverse)
+### [Reverse Geocoding](https://docs.traveltime.com/api/reference/geocoding-reverse)
 Attempt to match a latitude, longitude pair to an address.
 
 Function accepts the following parameters:
@@ -358,14 +358,14 @@ Function accepts the following parameters:
 geocoding_reverse(lat=51.507281, lng=-0.132120)
 ```
 
-### [Map Info](https://traveltime.com/docs/api/reference/map-info)
+### [Map Info](https://docs.traveltime.com/api/reference/map-info)
 Get information about currently supported countries.
 
 ```r
 map_info()
 ```
 
-### [Supported Locations](https://traveltime.com/docs/api/reference/supported-locations)
+### [Supported Locations](https://docs.traveltime.com/api/reference/supported-locations)
 Find out what points are supported by the api.
 
 ```r
