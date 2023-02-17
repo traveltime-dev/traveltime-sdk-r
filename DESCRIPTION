@@ -1,6 +1,6 @@
 Package: traveltimeR
 Title: R Interface to Travel Time API
-Version: 1.1
+Version: 1.1.1
 Description: Travel Time API helps users find locations by journey time rather than using ‘as the crow flies’ distance.
   Time-based searching gives users more opportunities for personalisation and delivers a more relevant search.
 Authors@R: person(given = "TravelTime", email = "frontend@traveltime.com", role = c("aut", "cre"), comment = "https://github.com/traveltime-dev")
