@@ -33,7 +33,7 @@ There also exists similar commands on other distributions or operating systems.
 ## Authentication
 
 In order to authenticate with Travel Time API, you will have to supply
-the Application Id and Api Key.
+the Application ID and API Key.
 
 ``` r
 library(traveltimeR)
@@ -45,7 +45,7 @@ Sys.setenv(TRAVELTIME_KEY = "YOUR_APP_KEY")
 
 ## Usage
 
-### [Isochrones (Time Map)](https://traveltime.com/docs/api/reference/isochrones)
+### [Isochrones (Time Map)](https://docs.traveltime.com/api/reference/isochrones)
 Given origin coordinates, find shapes of zones reachable within corresponding travel time. Find unions/intersections between different searches.
 
 ```r
@@ -76,7 +76,7 @@ result <-
 print(result)
 ```
 
-### [Distance Matrix (Time Filter)](https://traveltime.com/docs/api/reference/distance-matrix)
+### [Distance Matrix (Time Filter)](https://docs.traveltime.com/api/reference/distance-matrix)
 Given origin and destination points filter out points that cannot be reached within specified time limit.
 Find out travel times, distances and costs between an origin and up to 2,000 destination points.
 
@@ -126,55 +126,7 @@ result <-
 print(result)
 ```
 
-### [Routes](https://traveltime.com/docs/api/reference/routes)
-Returns routing information between source and destinations.
-
-Body attributes:
-* locations: Locations to use. Each location requires an id and lat/lng values.
-* departure_searches: Searches based on departure times. Leave departure location at no earlier than given time. You can define a maximum of 10 searches.
-* arrival_searches: Searches based on arrival times. Arrive at destination location at no later than given time. You can define a maximum of 10 searches.
-
-```r
-locations <- c(
-  make_location(
-    id = 'London center',
-    coords = list(lat = 51.508930, lng = -0.131387)),
-  make_location(
-    id = 'Hyde Park',
-    coords = list(lat = 51.508824, lng = -0.167093)),
-  make_location(
-    id = 'ZSL London Zoo',
-    coords = list(lat = 51.536067, lng = -0.153596))
-)
-
-departure_search <-
-  make_search(id = "departure search example",
-              departure_location_id = "London center",
-              arrival_location_ids = list("Hyde Park", "ZSL London Zoo"),
-              departure_time = strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ"),
-              properties = list("travel_time", "distance", "route"),
-              transportation = list(type = "driving"))
-
-arrival_search <-
-  make_search(id = "arrival  search example",
-              arrival_location_id = "London center",
-              departure_location_ids = list("Hyde Park", "ZSL London Zoo"),
-              arrival_time = strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ"),
-              properties = list('travel_time', "distance", "route", "fares"),
-              transportation = list(type = "public_transport"),
-              range = list(enabled = T, width = 1800, max_results = 1))
-
-result <-
-  routes(
-    departure_searches = departure_search,
-    arrival_searches = arrival_search,
-    locations = locations
-  )
-
-print(result)
-```
-
-### [Time Filter (Fast)](https://traveltime.com/docs/api/reference/time-filter-fast)
+### [Time Filter (Fast)](https://docs.traveltime.com/api/reference/time-filter-fast)
 A very fast version of `time_filter()`.
 However, the request parameters are much more limited.
 Currently only supports UK and Ireland.
@@ -241,7 +193,110 @@ time_filter_fast_proto(
 )
 ```
 
-### [Time Filter (Postcode Districts)](https://traveltime.com/docs/api/reference/postcode-district-filter)
+### [Routes](https://docs.traveltime.com/api/reference/routes)
+Returns routing information between source and destinations.
+
+Body attributes:
+* locations: Locations to use. Each location requires an id and lat/lng values.
+* departure_searches: Searches based on departure times. Leave departure location at no earlier than given time. You can define a maximum of 10 searches.
+* arrival_searches: Searches based on arrival times. Arrive at destination location at no later than given time. You can define a maximum of 10 searches.
+
+```r
+locations <- c(
+  make_location(
+    id = 'London center',
+    coords = list(lat = 51.508930, lng = -0.131387)),
+  make_location(
+    id = 'Hyde Park',
+    coords = list(lat = 51.508824, lng = -0.167093)),
+  make_location(
+    id = 'ZSL London Zoo',
+    coords = list(lat = 51.536067, lng = -0.153596))
+)
+
+departure_search <-
+  make_search(id = "departure search example",
+              departure_location_id = "London center",
+              arrival_location_ids = list("Hyde Park", "ZSL London Zoo"),
+              departure_time = strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ"),
+              properties = list("travel_time", "distance", "route"),
+              transportation = list(type = "driving"))
+
+arrival_search <-
+  make_search(id = "arrival  search example",
+              arrival_location_id = "London center",
+              departure_location_ids = list("Hyde Park", "ZSL London Zoo"),
+              arrival_time = strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ"),
+              properties = list('travel_time', "distance", "route", "fares"),
+              transportation = list(type = "public_transport"),
+              range = list(enabled = T, width = 1800, max_results = 1))
+
+result <-
+  routes(
+    departure_searches = departure_search,
+    arrival_searches = arrival_search,
+    locations = locations
+  )
+
+print(result)
+```
+
+### [Geocoding (Search)](https://docs.traveltime.com/api/reference/geocoding-search) 
+Match a query string to geographic coordinates.
+
+Function accepts the following parameters:
+* `query` - A query to geocode. Can be an address, a postcode or a venue.
+* `within.country` - Only return the results that are within the specified country or countries. If no results are found it will return the country itself. Optional. Format:ISO 3166-1 alpha-2 or alpha-3.
+* `format.exclude.country` - Format the name field of the response to a well formatted, human-readable address of the location. Experimental. Optional.
+* `format.name` - Exclude the country from the formatted name field (used only if format.name is equal true). Optional.
+* `bounds` - Used to limit the results to a bounding box. Expecting a character vector with four floats, marking a south-east and north-west corners of a rectangle: min-latitude,min-longitude,max-latitude,max-longitude. e.g. bounds for Scandinavia c(54.16243,4.04297,71.18316,31.81641). Optional.
+
+```r
+geocoding('Parliament square')
+```
+
+### [Reverse Geocoding](https://docs.traveltime.com/api/reference/geocoding-reverse)
+Attempt to match a latitude, longitude pair to an address.
+
+Function accepts the following parameters:
+
+* `lat` - Latitude of the point to reverse geocode.
+* `lng` - Longitude of the point to reverse geocode.
+
+```r
+geocoding_reverse(lat=51.507281, lng=-0.132120)
+```
+
+### [Time Filter (Postcodes)](https://docs.traveltime.com/api/reference/postcode-search)
+Find reachable postcodes from origin (or to destination) and get statistics about such postcodes. Currently only supports United Kingdom.
+
+```r
+departure_search <-
+  make_search(id = "public transport from Trafalgar Square",
+              coords = list(lat = 51.507609, lng = -0.128315),
+              departure_time = strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ"),
+              travel_time = 1800,
+              transportation = list(type = "public_transport"),
+              properties = list('travel_time', 'distance'))
+
+arrival_search <-
+  make_search(id = "public transport to Trafalgar Square",
+              coords = list(lat = 51.507609, lng = -0.128315),
+              arrival_time = strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ"),
+              travel_time = 1800,
+              transportation = list(type = "public_transport"),
+              properties = list('travel_time', 'distance'))
+
+result <-
+  time_filter_postcodes(
+    departure_searches = departure_search,
+    arrival_searches = arrival_search
+  )
+
+print(result)
+```
+
+### [Time Filter (Postcode Districts)](https://docs.traveltime.com/api/reference/postcode-district-filter)
 Find reachable postcodes from origin (or to destination) and get statistics about such postcodes. Currently only supports United Kingdom.
 
 ```r
@@ -272,7 +327,7 @@ result <-
 print(result)
 ```
 
-### [Time Filter (Postcode Sectors)](https://traveltime.com/docs/api/reference/postcode-sector-filter)
+### [Time Filter (Postcode Sectors)](https://docs.traveltime.com/api/reference/postcode-sector-filter)
 Find sectors that have a certain coverage from origin (or to destination) and get statistics about postcodes within such sectors. Currently only supports United Kingdom.
 
 ```r
@@ -303,69 +358,14 @@ result <-
 print(result)
 ```
 
-### [Time Filter (Postcodes)](https://traveltime.com/docs/api/reference/postcode-search)
-Find reachable postcodes from origin (or to destination) and get statistics about such postcodes. Currently only supports United Kingdom.
-
-```r
-departure_search <-
-  make_search(id = "public transport from Trafalgar Square",
-              coords = list(lat = 51.507609, lng = -0.128315),
-              departure_time = strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ"),
-              travel_time = 1800,
-              transportation = list(type = "public_transport"),
-              properties = list('travel_time', 'distance'))
-
-arrival_search <-
-  make_search(id = "public transport to Trafalgar Square",
-              coords = list(lat = 51.507609, lng = -0.128315),
-              arrival_time = strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ"),
-              travel_time = 1800,
-              transportation = list(type = "public_transport"),
-              properties = list('travel_time', 'distance'))
-
-result <-
-  time_filter_postcodes(
-    departure_searches = departure_search,
-    arrival_searches = arrival_search
-  )
-
-print(result)
-```
-
-### [Geocoding (Search)](https://traveltime.com/docs/api/reference/geocoding-search) 
-Match a query string to geographic coordinates.
-
-Function accepts the following parameters:
-* `query` - A query to geocode. Can be an address, a postcode or a venue.
-* `within.country` - Only return the results that are within the specified country or countries. If no results are found it will return the country itself. Optional. Format:ISO 3166-1 alpha-2 or alpha-3.
-* `format.exclude.country` - Format the name field of the response to a well formatted, human-readable address of the location. Experimental. Optional.
-* `format.name` - Exclude the country from the formatted name field (used only if format.name is equal true). Optional.
-* `bounds` - Used to limit the results to a bounding box. Expecting a character vector with four floats, marking a south-east and north-west corners of a rectangle: min-latitude,min-longitude,max-latitude,max-longitude. e.g. bounds for Scandinavia c(54.16243,4.04297,71.18316,31.81641). Optional.
-
-```r
-geocoding('Parliament square')
-```
-
-### [Reverse Geocoding](https://traveltime.com/docs/api/reference/geocoding-reverse)
-Attempt to match a latitude, longitude pair to an address.
-
-Function accepts the following parameters:
-
-* `lat` - Latitude of the point to reverse geocode.
-* `lng` - lng Longitude of the point to reverse geocode.
-
-```r
-geocoding_reverse(lat=51.507281, lng=-0.132120)
-```
-
-### [Map Info](https://traveltime.com/docs/api/reference/map-info)
+### [Map Info](https://docs.traveltime.com/api/reference/map-info)
 Get information about currently supported countries.
 
 ```r
 map_info()
 ```
 
-### [Supported Locations](https://traveltime.com/docs/api/reference/supported-locations)
+### [Supported Locations](https://docs.traveltime.com/api/reference/supported-locations)
 Find out what points are supported by the api.
 
 ```r
