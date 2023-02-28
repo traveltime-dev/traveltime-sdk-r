@@ -50,7 +50,7 @@ make_search <- function(id, travel_time = NA, coords = NA, departure_time = NA, 
 #' Allows you to define unions or intersections of shapes that are results of previously defined searches.
 #' You can define a maximum of 10 unions/intersections
 #'
-#' See \url{https://traveltime.com/docs/api/reference/isochrones} for details
+#' See \url{https://docs.traveltime.com/api/reference/isochrones} for details
 #'
 #' @param id Used to identify this specific search in the results array. MUST be unique among all searches.
 #' @param search_ids An unnamed list of search ids which results will formulate this union.
@@ -75,7 +75,7 @@ make_union_intersect <- function(id, search_ids){
 #'
 #' Define your locations to use later in departure_searches or arrival_searches.
 #'
-#' See \url{https://traveltime.com/docs/api/reference/distance-matrix} for details
+#' See \url{https://docs.traveltime.com/api/reference/distance-matrix} for details
 #'
 #' @param id You will have to reference this id in your searches.
 #' It will also be used in the response body. MUST be unique among all locations.
