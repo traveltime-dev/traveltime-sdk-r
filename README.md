@@ -76,6 +76,25 @@ result <-
 print(result)
 ```
 
+### [Isochrones (Time Map) Fast](https://docs.traveltime.com/api/reference/isochrones-fast)
+A very fast version of Isochrone API. However, the request parameters are much more limited.
+
+```r
+arrival_search <-
+make_search(id = "public transport to Trafalgar Square",
+            travel_time = 900,
+            coords = list(lat = 51.507609, lng = -0.128315),
+            arrival_time_period = "weekday_morning",
+            transportation = list(type = "public_transport"))
+
+result <-
+time_map_fast(
+  arrival_many_to_one = arrival_search
+)
+
+print(result)
+```
+
 ### [Distance Matrix (Time Filter)](https://docs.traveltime.com/api/reference/distance-matrix)
 Given origin and destination points filter out points that cannot be reached within specified time limit.
 Find out travel times, distances and costs between an origin and up to 2,000 destination points.
