@@ -33,7 +33,7 @@ locationsDF <- data.frame(
 locations <- apply(locationsDF, 1, function(x)
   make_location(id = x['id'], coords = list(lat = as.numeric(x["lat"]),
                                             lng = as.numeric(x["lng"]))))
-locations <- unlist(locations, recursive = F)
+locations <- unlist(locations, recursive = FALSE)
 
 departure_search <-
   make_search(id = "forward search example",
@@ -43,7 +43,7 @@ departure_search <-
               travel_time = 1800,
               transportation = list(type = "bus"),
               properties = list('travel_time'),
-              range = list(enabled = T, width = 600, max_results = 3))
+              range = list(enabled = TRUE, width = 600, max_results = 3))
 
 arrival_search <-
   make_search(id = "backward search example",
@@ -53,7 +53,7 @@ arrival_search <-
               travel_time = 1800,
               transportation = list(type = "public_transport"),
               properties = list('travel_time', "distance", "distance_breakdown", "fares"),
-              range = list(enabled = T, width = 600, max_results = 3))
+              range = list(enabled = TRUE, width = 600, max_results = 3))
 
 result <-
   time_filter(

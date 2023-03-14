@@ -30,6 +30,6 @@ locationsDF <- data.frame(
 locations <- apply(locationsDF, 1, function(x)
   make_location(id = x['id'], coords = list(lat = as.numeric(x["lat"]),
                                             lng = as.numeric(x["lng"]))))
-supported_locations(unlist(locations, recursive = F))
+supported_locations(unlist(locations, recursive = FALSE))
 }
 }

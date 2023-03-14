@@ -15,4 +15,4 @@ apiBaseUris <- list(
   protoDist = list(main = "https://proto-with-distance.api.traveltimeapp.com", path = c("api", "v2"))
 )
 
-usethis::use_data(protoTransport, apiBaseUris, overwrite = TRUE, internal = T)
+usethis::use_data(protoTransport, apiBaseUris, overwrite = TRUE, internal = TRUE)

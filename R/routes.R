@@ -37,7 +37,7 @@
 #'               arrival_time = strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ"),
 #'               transportation = list(type = "public_transport"),
 #'               properties = list('travel_time', "distance", "route", "fares"),
-#'               range = list(enabled = T, width = 1800, max_results = 1))
+#'               range = list(enabled = TRUE, width = 1800, max_results = 1))
 #'
 #' result <-
 #'   routes(

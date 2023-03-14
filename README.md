@@ -65,7 +65,7 @@ arrival_search <-
               arrival_time = dateTime,
               travel_time = 900,
               transportation = list(type = "public_transport"),
-              range = list(enabled = T, width = 3600))
+              range = list(enabled = TRUE, width = 3600))
 
 result <-
   time_map(
@@ -94,7 +94,7 @@ locationsDF <- data.frame(
 locations <- apply(locationsDF, 1, function(x)
   make_location(id = x['id'], coords = list(lat = as.numeric(x["lat"]),
                                             lng = as.numeric(x["lng"]))))
-locations <- unlist(locations, recursive = F)
+locations <- unlist(locations, recursive = FALSE)
 
 departure_search <-
   make_search(id = "departure search example",
@@ -104,7 +104,7 @@ departure_search <-
               travel_time = 1800,
               properties = list('travel_time'),
               transportation = list(type = "bus"),
-              range = list(enabled = T, width = 600, max_results = 3))
+              range = list(enabled = TRUE, width = 600, max_results = 3))
 
 arrival_search <-
   make_search(id = "arrival search example",
@@ -114,7 +114,7 @@ arrival_search <-
               travel_time = 1800,
               properties = list('travel_time', "distance", "distance_breakdown", "fares"),
               transportation = list(type = "public_transport"),
-              range = list(enabled = T, width = 600, max_results = 3))
+              range = list(enabled = TRUE, width = 600, max_results = 3))
 
 result <-
   time_filter(
@@ -162,7 +162,7 @@ arrival_search <-
               arrival_time = strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ"),
               properties = list('travel_time', "distance", "route", "fares"),
               transportation = list(type = "public_transport"),
-              range = list(enabled = T, width = 1800, max_results = 1))
+              range = list(enabled = TRUE, width = 1800, max_results = 1))
 
 result <-
   routes(
@@ -237,7 +237,7 @@ time_filter_fast_proto(
   transportation = 'driving+ferry',
   travelTime = 7200,
   country = "uk",
-  useDistance = F
+  useDistance = FALSE
 )
 ```
 
@@ -377,5 +377,5 @@ locationsDF <- data.frame(
 locations <- apply(locationsDF, 1, function(x)
   make_location(id = x['id'], coords = list(lat = as.numeric(x["lat"]),
                                             lng = as.numeric(x["lng"]))))
-supported_locations(unlist(locations, recursive = F))
+supported_locations(unlist(locations, recursive = FALSE))
 ```

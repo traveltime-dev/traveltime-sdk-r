@@ -39,7 +39,7 @@
 #'               travel_time = 900,
 #'               coords = list(lat = 51.507609, lng = -0.128315),
 #'               transportation = list(type = "public_transport"),
-#'               range = list(enabled = T, width = 3600))
+#'               range = list(enabled = TRUE, width = 3600))
 #'
 #' union <- make_union_intersect(id = "union of driving and public transport",
 #'                                search_ids = list('driving from Trafalgar Square',
