@@ -33,7 +33,7 @@ There also exists similar commands on other distributions or operating systems.
 ## Authentication
 
 In order to authenticate with Travel Time API, you will have to supply
-the Application Id and Api Key.
+the Application ID and API Key.
 
 ``` r
 library(traveltimeR)
