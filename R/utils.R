@@ -14,7 +14,7 @@ build_body <- function(body) {
 }
 
 get_ua <- function() {
-  httr::user_agent(paste("Travel Time R SDK", packageVersion("traveltimeR")))
+  httr::user_agent("Travel Time R SDK")
 }
 
 get_api_headers <- function(format = NULL, contentType = NULL) {
