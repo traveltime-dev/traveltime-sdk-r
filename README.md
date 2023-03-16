@@ -6,12 +6,10 @@ Time-based searching gives users more opportunities for personalisation and deli
 
 ## Installation
 
-You can install the development version from
-[GitHub](https://github.com/) with:
+You can install Travel Time R SDK hosted on [CRAN repository](https://cran.r-project.org/web/packages/traveltimeR/index.html) with the bellow command:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("traveltime-dev/traveltime-sdk-r")
+install.packages("traveltimeR")
 ```
 
 ### System requirements
