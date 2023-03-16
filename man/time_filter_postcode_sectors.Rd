@@ -22,7 +22,7 @@ Find sectors that have a certain coverage from origin (or to destination) and ge
 Currently only supports United Kingdom.
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/postcode-sector-filter} for details
+See \url{https://docs.traveltime.com/api/reference/postcode-sector-filter/} for details
 }
 \examples{
 \dontrun{

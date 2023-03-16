@@ -2,7 +2,7 @@
 build_body <- function(body) {
 
   lapply(body, function(x) {
-    dt <- data.table::rbindlist(x, fill = T)
+    dt <- data.table::rbindlist(x, fill = TRUE)
     #rbindlist fills empty lists with NULLs, but we need them as NAs
     for (nm in colnames(dt)) {
       if(is.list(dt[[nm]]))
@@ -82,7 +82,7 @@ traveltime_api <- function(path, body = NULL, query = NULL, format = NULL, type 
     structure(
       list(
         contentParsed = parsed,
-        contentJSON = jsonlite::toJSON(parsed, auto_unbox = T, digits = 22),
+        contentJSON = jsonlite::toJSON(parsed, auto_unbox = TRUE, digits = 22),
         contentRaw = json
       ),
       class = "traveltime_api"
@@ -120,7 +120,7 @@ add_search_args <- function(...) {
 
   args <- list(...)
   if (is.null(names(args)) || any(names(args) == "")) {
-    stop("All objects must be named!", call. = F)
+    stop("All objects must be named!", call. = FALSE)
   }
 
   list_args <- vapply(args, is.list, FUN.VALUE = logical(1))

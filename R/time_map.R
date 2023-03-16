@@ -3,7 +3,7 @@
 #' Given origin coordinates, find shapes of zones reachable within corresponding travel time.
 #' Find unions/intersections between different searches
 #'
-#' See \url{https://traveltime.com/docs/api/reference/isochrones} for details
+#' See \url{https://docs.traveltime.com/api/reference/isochrones/} for details
 #'
 #' @param departure_searches One or more objects created by \code{\link{make_search}}
 #' @param arrival_searches One or more objects created by \code{\link{make_search}}
@@ -39,7 +39,7 @@
 #'               travel_time = 900,
 #'               coords = list(lat = 51.507609, lng = -0.128315),
 #'               transportation = list(type = "public_transport"),
-#'               range = list(enabled = T, width = 3600))
+#'               range = list(enabled = TRUE, width = 3600))
 #'
 #' union <- make_union_intersect(id = "union of driving and public transport",
 #'                                search_ids = list('driving from Trafalgar Square',

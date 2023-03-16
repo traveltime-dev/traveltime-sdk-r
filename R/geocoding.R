@@ -2,7 +2,7 @@
 #'
 #' Match a query string to geographic coordinates.
 #'
-#' See \url{https://traveltime.com/docs/api/reference/geocoding-search} for details
+#' See \url{https://docs.traveltime.com/api/reference/geocoding-search/} for details
 #'
 #' @param query A query to geocode. Can be an address, a postcode or a venue.
 #' @param within.country Only return the results that are within the specified country.
@@ -25,6 +25,6 @@ geocoding <- function(query, within.country = NA, format.name = NA, format.exclu
                  format.name = format.name,
                  format.exclude.country = format.exclude.country[!missing(format.name)],
                  bounds = paste(as.character(bounds), collapse=",")[!missing(bounds)])
-                 
+
   traveltime_api(path = c('geocoding', 'search'), query = as.list(queryFull)[!is.na(queryFull)])
 }

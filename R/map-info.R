@@ -2,7 +2,7 @@
 #'
 #'Returns information about currently supported countries.
 #'
-#'See \url{https://traveltime.com/docs/api/reference/map-info} for details
+#'See \url{https://docs.traveltime.com/api/reference/map-info/} for details
 #'
 #' @return API response parsed as list and as a raw json
 #' @export

@@ -3,7 +3,7 @@
 #' Find sectors that have a certain coverage from origin (or to destination) and get statistics about postcodes within such sectors.
 #' Currently only supports United Kingdom.
 #'
-#' See \url{https://traveltime.com/docs/api/reference/postcode-sector-filter} for details
+#' See \url{https://docs.traveltime.com/api/reference/postcode-sector-filter/} for details
 #'
 #' @inheritParams time_filter
 #'

@@ -20,7 +20,7 @@ Allows you to define unions or intersections of shapes that are results of previ
 You can define a maximum of 10 unions/intersections
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/isochrones} for details
+See \url{https://docs.traveltime.com/api/reference/isochrones} for details
 }
 \seealso{
 See \code{\link{time_map}} for usage examples

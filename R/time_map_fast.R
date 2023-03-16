@@ -2,7 +2,7 @@
 #'
 #' A very fast version of Isochrone API. However, the request parameters are much more limited.
 #'
-#' See \url{https://traveltime.com/docs/api/reference/isochrones-fast} for details
+#' See \url{https://docs.traveltime.com/api/reference/isochrones-fast/} for details
 #'
 #' @param arrival_many_to_one One or more objects created by \code{\link{make_search}}
 #' @param arrival_one_to_many One or more objects created by \code{\link{make_search}}

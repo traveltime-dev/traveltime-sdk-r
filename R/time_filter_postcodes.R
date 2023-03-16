@@ -3,7 +3,7 @@
 #' Find reachable postcodes from origin (or to destination) and get statistics about such postcodes.
 #' Currently only supports United Kingdom.
 #'
-#' See \url{https://traveltime.com/docs/api/reference/postcode-search} for details
+#' See \url{https://docs.traveltime.com/api/reference/postcode-search/} for details
 #'
 #' @inheritParams time_filter
 #'

@@ -21,7 +21,7 @@ Given origin and destination points filter out points that cannot be reached wit
 Find out travel times, distances and costs between an origin and up to 2,000 destination points.
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/distance-matrix} for details
+See \url{https://docs.traveltime.com/api/reference/travel-time-distance-matrix/} for details
 }
 \examples{
 \dontrun{
@@ -33,7 +33,7 @@ locationsDF <- data.frame(
 locations <- apply(locationsDF, 1, function(x)
   make_location(id = x['id'], coords = list(lat = as.numeric(x["lat"]),
                                             lng = as.numeric(x["lng"]))))
-locations <- unlist(locations, recursive = F)
+locations <- unlist(locations, recursive = FALSE)
 
 departure_search <-
   make_search(id = "forward search example",
@@ -43,7 +43,7 @@ departure_search <-
               travel_time = 1800,
               transportation = list(type = "bus"),
               properties = list('travel_time'),
-              range = list(enabled = T, width = 600, max_results = 3))
+              range = list(enabled = TRUE, width = 600, max_results = 3))
 
 arrival_search <-
   make_search(id = "backward search example",
@@ -53,7 +53,7 @@ arrival_search <-
               travel_time = 1800,
               transportation = list(type = "public_transport"),
               properties = list('travel_time', "distance", "distance_breakdown", "fares"),
-              range = list(enabled = T, width = 600, max_results = 3))
+              range = list(enabled = TRUE, width = 600, max_results = 3))
 
 result <-
   time_filter(

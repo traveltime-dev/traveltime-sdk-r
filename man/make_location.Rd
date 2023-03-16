@@ -20,7 +20,7 @@ It is constructed in a way that allows jsonlite::toJSON to correctly transform i
 Define your locations to use later in departure_searches or arrival_searches.
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/distance-matrix} for details
+See \url{https://docs.traveltime.com/api/reference/distance-matrix} for details
 }
 \seealso{
 See \code{\link{time_filter}} for usage examples

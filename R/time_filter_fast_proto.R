@@ -31,12 +31,12 @@
 #' transportation = 'driving+ferry',
 #' travelTime = 7200,
 #' country = "uk",
-#' useDistance = F
+#' useDistance = FALSE
 #' )
 #' }
 time_filter_fast_proto <- function(departureLat, departureLng,
                                    country = c("uk", "ireland"), travelTime,
-                                   destinationCoordinates, transportation = names(protoTransport), useDistance = F) {
+                                   destinationCoordinates, transportation = names(protoTransport), useDistance = FALSE) {
 
   transportation <- match.arg(transportation)
   country <- match.arg(country)
@@ -55,7 +55,7 @@ time_filter_fast_proto <- function(departureLat, departureLng,
 
   lats = encodeFixedPoints(departureLat, destinationCoordinates$lat)
   lngs = encodeFixedPoints(departureLng, destinationCoordinates$lng)
-  locationDeltas = c(matrix(c(lats, lngs), nrow = 2, byrow = T))
+  locationDeltas = c(matrix(c(lats, lngs), nrow = 2, byrow = TRUE))
 
   oneToManyRequest = RProtoBuf::new(com.igeolise.traveltime.rabbitmq.requests.TimeFilterFastRequest.OneToMany,
                                     departureLocation = departureLocationMsg,

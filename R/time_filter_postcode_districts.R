@@ -3,7 +3,7 @@
 #'Find districts that have a certain coverage from origin (or to destination) and get statistics about postcodes within such districts.
 #'Currently only supports United Kingdom.
 #'
-#' See \url{https://traveltime.com/docs/api/reference/postcode-district-filter} for details
+#' See \url{https://docs.traveltime.com/api/reference/postcode-district-filter/} for details
 #'
 #' @inheritParams time_filter
 #'

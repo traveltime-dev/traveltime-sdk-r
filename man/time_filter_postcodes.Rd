@@ -19,7 +19,7 @@ Find reachable postcodes from origin (or to destination) and get statistics abou
 Currently only supports United Kingdom.
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/postcode-search} for details
+See \url{https://docs.traveltime.com/api/reference/postcode-search/} for details
 }
 \examples{
 \dontrun{

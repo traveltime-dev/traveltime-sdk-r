@@ -18,7 +18,7 @@ The returned map name for a point can be used to determine what features are sup
 See also the \code{\link{map_info}}.
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/supported-locations} for details
+See \url{https://docs.traveltime.com/api/reference/supported-locations/} for details
 }
 \examples{
 \dontrun{
@@ -30,6 +30,6 @@ locationsDF <- data.frame(
 locations <- apply(locationsDF, 1, function(x)
   make_location(id = x['id'], coords = list(lat = as.numeric(x["lat"]),
                                             lng = as.numeric(x["lng"]))))
-supported_locations(unlist(locations, recursive = F))
+supported_locations(unlist(locations, recursive = FALSE))
 }
 }

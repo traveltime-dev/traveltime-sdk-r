@@ -18,7 +18,7 @@ API response parsed as list and as a raw json
 Attempt to match a latitude, longitude pair to an address.
 }
 \details{
-See \url{https://traveltime.com/docs/api/reference/geocoding-reverse} for details
+See \url{https://docs.traveltime.com/api/reference/geocoding-reverse/} for details
 }
 \examples{
 \dontrun{

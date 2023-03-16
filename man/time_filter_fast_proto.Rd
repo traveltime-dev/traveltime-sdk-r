@@ -11,7 +11,7 @@ time_filter_fast_proto(
   travelTime,
   destinationCoordinates,
   transportation = names(protoTransport),
-  useDistance = F
+  useDistance = FALSE
 )
 }
 \arguments{
@@ -54,7 +54,7 @@ destinationCoordinates = data.frame(
 transportation = 'driving+ferry',
 travelTime = 7200,
 country = "uk",
-useDistance = F
+useDistance = FALSE
 )
 }
 }
