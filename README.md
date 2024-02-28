@@ -194,7 +194,6 @@ print(result)
 ### [Time Filter (Fast)](https://docs.traveltime.com/api/reference/time-filter-fast)
 A very fast version of `time_filter()`.
 However, the request parameters are much more limited.
-Currently only supports UK and Ireland.
 
 ```r
 locations <-
