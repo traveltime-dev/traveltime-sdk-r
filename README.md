@@ -93,6 +93,43 @@ time_map_fast(
 print(result)
 ```
 
+### [Distance Map](https://docs.traveltime.com/api/reference/distance-map)
+Given origin coordinates, find shapes of zones reachable within corresponding travel distance. Find unions/intersections between different searches.
+```r
+dateTime <- strftime(as.POSIXlt(Sys.time(), "UTC"), "%Y-%m-%dT%H:%M:%SZ")
+
+departure_search <-
+  make_search(id = "driving from Trafalgar Square",
+              departure_time = dateTime,
+              travel_distance = 900,
+              coords = list(lat = 51.507609, lng = -0.128315),
+              transportation = list(type = "driving"))
+
+arrival_search <-
+  make_search(id = "driving to Trafalgar Square",
+              arrival_time = dateTime,
+              travel_distance = 900,
+              coords = list(lat = 51.507609, lng = -0.128315),
+              transportation = list(type = "driving"),
+              range = list(enabled = TRUE, width = 3600))
+
+union <- make_union_intersect(id = "union of driving to and from Trafalgar Square",
+                               search_ids = list('driving from Trafalgar Square',
+                                                 'driving to Trafalgar Square'))
+intersection <- make_union_intersect(id = "intersection of driving to and from Trafalgar Square",
+                               search_ids = list('driving from Trafalgar Square',
+                                                 'driving to Trafalgar Square'))
+result <-
+  distance_map(
+    departure_searches = departure_search,
+    arrival_searches = arrival_search,
+    unions = union,
+    intersections = intersection
+  )
+
+print(result)
+```
+
 ### [Distance Matrix (Time Filter)](https://docs.traveltime.com/api/reference/distance-matrix)
 Given origin and destination points filter out points that cannot be reached within specified time limit.
 Find out travel times, distances and costs between an origin and up to 2,000 destination points.
