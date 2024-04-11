@@ -2,10 +2,16 @@
 % Please edit documentation in R/make_searches.R
 \name{check_coords_for_error}
 \alias{check_coords_for_error}
-\title{return TRUE if it should error}
+\title{Validates location coordinates}
 \usage{
 check_coords_for_error(coords)
 }
+\arguments{
+\item{coords}{Location coordinates. Must use this format: list(lat = 0, lng = 0)}
+}
+\value{
+TRUE if coords are valid, FALSE otherwise
+}
 \description{
-return TRUE if it should error
+Validates location coordinates
 }

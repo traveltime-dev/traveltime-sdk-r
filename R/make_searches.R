@@ -90,7 +90,12 @@ make_location <- function(id, coords) {
   add_search_args(id = id, coords = coords)
 }
 
-#' return TRUE if it should error
+#' Validates location coordinates
+#'
+#' @param coords Location coordinates. Must use this format: list(lat = 0, lng = 0)
+#'
+#' @return TRUE if coords are valid, FALSE otherwise
+#' @export
 check_coords_for_error <- function(coords){
     is_coords_broken <- (
         !is.list(coords) | 
