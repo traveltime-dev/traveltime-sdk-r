@@ -20,7 +20,12 @@
 make_search <- function(id, travel_time = NA, coords = NA, departure_time = NA, arrival_time = NA,
                                   transportation = list(type = 'driving'), ...) {
 
-  if(check_coords_for_error(coords)) stop("coords must be named lat/lng list!")
+# skip coords check for time_filter endpoints
+  if (!'departure_location_id' %in% names(list(...)) &&
+      !'arrival_location_id' %in% names(list(...)) &&
+      !'reachable_postcodes_threshold' %in% names(list(...))) {
+    if(check_coords_for_error(coords)) stop("coords must be named lat/lng list!")
+  }
 
   #skip this check for time_filter_fast
   if (!'arrival_time_period' %in% names(list(...)) &&
@@ -84,7 +89,7 @@ make_union_intersect <- function(id, search_ids){
 #'
 #' @seealso See \code{\link{time_filter}} for usage examples
 make_location <- function(id, coords) {
-  
+
   if(check_coords_for_error(coords)) stop("coords must be named lat/lng list!")
 
   add_search_args(id = id, coords = coords)
@@ -98,10 +103,10 @@ make_location <- function(id, coords) {
 #' @export
 check_coords_for_error <- function(coords){
     is_coords_broken <- (
-        !is.list(coords) | 
-            is.null(names(coords)) | 
+        !is.list(coords) |
+            is.null(names(coords)) |
             anyNA(coords) |
             !all(c('lat', 'lng') %in% names(coords)))
-    
+
     return(is_coords_broken)
 }
