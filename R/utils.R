@@ -35,6 +35,10 @@ get_api_headers <- function(format = NULL, contentType = NULL) {
                     `Accept` = format, `Content-Type` = contentType)
 }
 
+get_with_default <- function(value, default) {
+  if (is.null(value)) default else value
+}
+
 #' @importFrom utils head
 traveltime_api <- function(path, body = NULL, query = NULL, format = NULL, type = c("base", "proto", "protoDist"), respMsg = NULL) {
 
@@ -54,9 +58,25 @@ traveltime_api <- function(path, body = NULL, query = NULL, format = NULL, type 
   }
 
   if (httr::status_code(resp) != 200) {
-    errorResponse <- httr::content(resp, "text", encoding = "UTF-8")
     if (type != "base")
-      stop(errorResponse)
+      parsedHeaders <- httr::headers(resp)
+      # Extract specific error headers with default values
+      errorCode <- get_with_default(parsedHeaders[["X-ERROR-CODE"]], "Unknown")
+      errorDetails <- get_with_default(parsedHeaders[["X-ERROR-DETAILS"]], "No details provided")
+      errorMessage <- get_with_default(parsedHeaders[["X-ERROR-MESSAGE"]], "No message provided")
+
+      # Create error message
+      msg <- sprintf(
+        "Travel Time API proto request failed with error code: %s\nX-ERROR-CODE: %s\nX-ERROR-DETAILS: %s\nX-ERROR-MESSAGE: %s",
+        httr::status_code(resp),
+        errorCode,
+        errorDetails,
+        errorMessage
+      )
+
+      stop(msg)
+
+    errorResponse <- httr::content(resp, "text", encoding = "UTF-8")
     parsedError <- jsonlite::fromJSON(errorResponse, simplifyVector = FALSE)
     info <- parsedError$additional_info
     stop(

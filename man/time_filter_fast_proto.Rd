@@ -7,7 +7,12 @@
 time_filter_fast_proto(
   departureLat,
   departureLng,
-  country = c("uk", "ireland"),
+  country = c(
+    "nl", "at", "uk", "be", "de", "fr", "ie", "lt", "us", "za",
+    "ro", "pt", "ph", "nz", "no", "lv", "jp", "in", "id", "hu",
+    "gr", "fi", "dk", "ca", "au", "sg", "ch", "es", "it", "pl",
+    "se", "li", "mx", "sa", "rs", "si"
+ ),
   travelTime,
   destinationCoordinates,
   transportation = names(protoTransport),
@@ -19,7 +24,7 @@ time_filter_fast_proto(
 
 \item{departureLng}{origin longitude}
 
-\item{country}{Origin country. Only UK and Ireland are supported.}
+\item{country}{Origin country. See \url{https://docs.traveltime.com/api/overview/supported-countries} for the list of supported countries }
 
 \item{travelTime}{Maximum journey time (in seconds).}
 

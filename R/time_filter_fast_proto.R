@@ -12,7 +12,8 @@
 #' @param departureLat origin latitude
 #' @param departureLng origin longitude
 #' @param transportation One of supported transportation methods: 'pt', 'driving+ferry', 'cycling+ferry', 'walking+ferry'.
-#' @param country Origin country. Only UK and Ireland are supported.
+#' @param country Origin country. See \url{https://docs.traveltime.com/api/overview/supported-countries} for the list of supported countries }
+
 #' @param travelTime Maximum journey time (in seconds).
 #' @param destinationCoordinates data.frame with pairs of coordinates. Coordinates columns must be named 'lat' and 'lng'
 #' @param useDistance return distance information
@@ -34,10 +35,20 @@
 #' useDistance = FALSE
 #' )
 #' }
-time_filter_fast_proto <- function(departureLat, departureLng,
-                                   country = c("uk", "ireland"), travelTime,
-                                   destinationCoordinates, transportation = names(protoTransport), useDistance = FALSE) {
-
+time_filter_fast_proto <- function(
+    departureLat,
+    departureLng,
+    country = c(
+      "nl", "at", "uk", "be", "de", "fr", "ie", "lt", "us", "za",
+      "ro", "pt", "ph", "nz", "no", "lv", "jp", "in", "id", "hu",
+      "gr", "fi", "dk", "ca", "au", "sg", "ch", "es", "it", "pl",
+      "se", "li", "mx", "sa", "rs", "si"
+   ),
+   travelTime,
+   destinationCoordinates,
+   transportation = names(protoTransport),
+   useDistance = FALSE
+) {
   transportation <- match.arg(transportation)
   country <- match.arg(country)
 
