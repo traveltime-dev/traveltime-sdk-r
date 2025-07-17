@@ -157,7 +157,5 @@ add_search_args <- function(...) {
 }
 
 encodeFixedPoints <- function(sourcePoint, targetPoints) {
-  round((targetPoints - sourcePoint) * 10^5) |> as.integer()
+  as.integer(round((targetPoints - sourcePoint) * 10^5))
 }
-
-
