@@ -2,6 +2,7 @@
 
 export(check_coords_for_error)
 export(distance_map)
+export(geohash_fast_proto)
 export(geocoding)
 export(geocoding_reverse)
 export(make_location)
