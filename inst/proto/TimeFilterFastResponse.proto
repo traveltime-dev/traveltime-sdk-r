@@ -91,6 +91,56 @@ message TimeFilterFastResponse {
       * Invalid proto request
       */
      INVALID_PROTO_REQUEST = 15 [deprecated = true];
+
+     /*
+      * The user has gone over their request limit rate
+      */
+     TOO_MANY_REQUESTS = 16 [deprecated = true];
+
+     /*
+      * Parking time penalty is over the overall travel time limit for the journey
+      */
+     PARKING_TIME_OVER_TRAVEL_TIME_LIMIT = 17 [deprecated = true];
+
+     /*
+      * Walk to station penalty must be > 0
+      */
+     WALK_TO_STATION_MUST_BE_POSITIVE = 18 [deprecated = true];
+
+     /*
+      * Walk to station limit cannot be greater than the global travel time
+      * limit for the journey.
+      */
+     WALK_TO_STATION_OVER_TRAVEL_TIME_LIMIT = 19 [deprecated = true];
+
+     /*
+      * Walk to station limit cannot be greater than 1800
+      */
+     WALK_TO_STATION_TOO_HIGH = 20 [deprecated = true];
+
+     /*
+      * Drive to station penalty must be > 0
+      */
+     DRIVE_TO_STATION_MUST_BE_POSITIVE = 21 [deprecated = true];
+
+     /*
+      * Drive to station limit cannot be greater than the global travel time
+      * limit for the journey.
+      */
+     DRIVE_TO_STATION_OVER_TRAVEL_TIME_LIMIT = 22 [deprecated = true];
+
+     /*
+      * Drive to station limit cannot be greater than the global travel time
+      * limit for the journey.
+      */
+     DRIVE_TO_STATION_TOO_HIGH = 23 [deprecated = true];
+
+     /*
+      * Transportation details do not match mode. See
+      * * RequestsCommon.PublicTransportDetails 
+      * * RequestsCommon.DrivingAndPublicTransportDetails
+      */
+     TRANSPORTATION_DETAILS_MISMATCH = 24 [deprecated = true];
   }
 
   Error error = 1 [deprecated = true];
