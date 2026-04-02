@@ -11,7 +11,7 @@ geohash_fast_proto(
     "nl", "at", "uk", "be", "de", "fr", "ie", "lt", "us", "za",
     "ro", "pt", "ph", "nz", "no", "lv", "jp", "in", "id", "hu",
     "gr", "fi", "dk", "ca", "au", "sg", "ch", "es", "it", "pl",
-    "se", "li", "mx", "sa", "rs", "si"
+    "se", "li", "mx", "sa", "rs", "si", "cz", "sk"
   ),
   travelTime,
   transportation = names(protoTransport),
