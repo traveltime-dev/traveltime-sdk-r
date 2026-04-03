@@ -12,3 +12,4 @@
 ^\.git$
 ^\./\.\.Rcheck$
 ^cran-comments\.md$
+^\.claude$
